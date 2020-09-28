@@ -658,7 +658,7 @@ textarea {
 }
 
 .site-header {
-	border: 1px solid gray;
+	border-bottom: 1px solid gray;
 	align-items: center;
 	display: flex;
 }
@@ -715,6 +715,26 @@ textarea {
 	padding: 1em 2.4em;
 }
 
+.nav-contents {
+	padding: 0.7em 2.4em;
+	border-bottom: 1px solid gray;
+}
+
+.nav-contents p {
+	font-family: 'Rubik Bold';
+	text-transform: uppercase;
+}
+
+.nav-contents a {
+	color: #212121;
+	text-decoration: none;
+}
+
+.nav-contents p img {
+	margin-right: .5em;
+	margin-bottom: -.1em;
+}
+
 .site-main {
 	max-width: 60em;
 	margin: 0 auto;
@@ -722,6 +742,16 @@ textarea {
 
 .site-main h1, .site-main h2 {
 	text-align: center;
+}
+
+.entry-title {
+	color: #212121;
+	font-size: 4.5em;
+}
+
+.entry-title a {
+	color: #212121;
+	text-decoration: none;
 }
 
 .site-footer {

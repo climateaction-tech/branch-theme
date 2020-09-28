@@ -19,10 +19,10 @@
 				printf( esc_html__( 'Proudly powered by %s', 'branch' ), 'WordPress' );
 				?>
 			</a>
-			<span class="sep"> | </span>
+			<!--<span class="sep"> | </span>-->
 				<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'branch' ), 'branch', '<a href="https://jacklenox.com">Jack Lenox</a>' );
+				//printf( esc_html__( 'Theme: %1$s by %2$s.', 'branch' ), 'branch', '<a href="https://jacklenox.com">Jack Lenox</a>' );
 				?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
