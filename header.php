@@ -65,3 +65,7 @@
 			<a href="https://climateaction.tech/"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/Climate_Action_Tech_Logo.svg" /></a>
 		</div>
 	</header><!-- #masthead -->
+
+	<div id="nav-contents" class="nav-contents">
+		<p><a href="#"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/Contents_icon.svg" /> Contents</a></p>
+	</div>
