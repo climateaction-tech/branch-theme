@@ -653,8 +653,16 @@ textarea {
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
-.site {
-	/*margin: 2.4em;*/
+body.low-grid-intensity {
+	background-color: #EEFBF7;
+}
+
+body.moderate-grid-intensity {
+	background-color: #EFF8FC;
+}
+
+body.high-grid-intensity {
+	background-color: #FFF8F2;
 }
 
 .site-header {
@@ -666,6 +674,10 @@ textarea {
 .logo {
 	align-self: center;
 	margin-left: 2.4em;
+}
+
+.logo img {
+	min-width: 40px;
 }
 
 .site-branding {

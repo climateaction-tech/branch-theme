@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '0.0.3' );
+	define( '_S_VERSION', '0.0.6' );
 }
 
 if ( ! function_exists( 'branch_setup' ) ) :
@@ -143,13 +143,76 @@ function branch_scripts() {
 	wp_enqueue_style( 'branch-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'branch-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'branch-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	//wp_enqueue_script( 'branch-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	//wp_enqueue_script( 'branch-grid', get_template_directory_uri() . '/js/grid-intensity.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'branch_scripts' );
+
+function branch_grid_intensity() {
+	?>
+		<script src="<?php echo esc_url( get_template_directory_uri() . '/js/gridintensity.browser.min.js' ); ?>"></script>
+		<script>
+			function setWithExpiry(key, value, ttl) {
+				const now = new Date()
+
+				// `item` is an object which contains the original value
+				// as well as the time when it's supposed to expire
+				const item = {
+					value: value,
+					expiry: now.getTime() + ttl,
+				}
+				localStorage.setItem(key, JSON.stringify(item))
+			}
+
+			function getWithExpiry(key) {
+				const itemStr = localStorage.getItem(key)
+				// if the item doesn't exist, return null
+				if (!itemStr) {
+					return null
+				}
+				const item = JSON.parse(itemStr)
+				const now = new Date()
+				// compare the expiry time of the item with the current time
+				if (now.getTime() > item.expiry) {
+					// If the item is expired, delete the item from storage
+					// and return null
+					localStorage.removeItem(key)
+					return null
+				}
+				return item.value
+			}
+
+			async function main() {
+				let index
+				if ( null != getWithExpiry( 'grid-intensity' ) ) {
+					index = getWithExpiry( 'grid-intensity' )
+				} else {
+					const grid = new GridIntensity()
+					await grid.setup()
+					index = await grid.getCarbonIndex()
+					setWithExpiry( 'grid-intensity', index, 3600000 )
+				}
+				let logo
+				console.log({ index })
+				document.querySelector('body').classList.add(`${index}-grid-intensity`)
+				if ( 'high' == index ) {
+					logo = 'orange'
+				} else if ( 'moderate' == index ) {
+					logo = 'blue'
+				} else {
+					logo = 'green'
+				}
+				document.querySelector('.logo img').src = '<?php echo esc_url( get_template_directory_uri() . '/images/branch_' ); ?>' + logo + '-01.svg'
+			}
+			main()
+		</script>
+	<?php
+}
+add_action( 'wp_footer', 'branch_grid_intensity' );
 
 /**
  * Implement the Custom Header feature.
