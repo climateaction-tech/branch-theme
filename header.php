@@ -28,7 +28,7 @@
 
 	<header id="masthead" class="site-header">
 		<div class="logo">
-			<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/branch-power-logo-green.svg" />
+			<img />
 		</div>
 		<div class="site-branding">
 			<?php
