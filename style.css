@@ -657,8 +657,12 @@ body.low-grid-intensity {
 	background-color: #EEFBF7;
 }
 
-body.low-grid-intensity main.site-main a {
+body.low-grid-intensity main.site-main a, body.low-grid-intensity main.site-main .entry-title {
 	color: #1cdcb4;
+}
+
+body.low-grid-intensity main.site-main {
+	color: #1c6244;
 }
 
 body.moderate-grid-intensity {
@@ -669,7 +673,7 @@ body.moderate-grid-intensity main.site-main a, body.moderate-grid-intensity main
 	color: #51aee2;
 }
 
-body.moderate-grid-intensity main.site-main p {
+body.moderate-grid-intensity main.site-main {
 	color: #004884;
 }
 
@@ -677,8 +681,12 @@ body.high-grid-intensity {
 	background-color: #FFF8F2;
 }
 
-body.high-grid-intensity main.site-main a {
+body.high-grid-intensity main.site-main a, body.high-grid-intensity main.site-main .entry-title {
 	color: #ff7900;
+}
+
+body.moderate-grid-intensity main.site-main {
+	color: #543010;
 }
 
 .site-header {
@@ -802,9 +810,15 @@ body.high-grid-intensity main.site-main a {
 	border-left-width: 7px;
 	border-left-style: solid;
 	margin-left: 6em;
-	font-style: italic;
 	font-size: 1.3em;
 	max-width: 35em;
+	text-align: left;
+	padding-left: 1.5em;
+}
+
+.entry-content blockquote p {
+	font-style: italic;
+	line-height: 1.3;
 }
 
 body.low-grid-intensity .entry-content blockquote {
@@ -819,10 +833,6 @@ body.high-grid-intensity .entry-content blockquote {
 	border-left-color: #ff7900;
 }
 
-.entry-content blockquote p {
-	line-height: 1.3;
-}
-
 .entry-content ul, .entry-content ol {
 	font-size: 1.3rem;
 	max-width: 35em;
@@ -830,6 +840,10 @@ body.high-grid-intensity .entry-content blockquote {
 }
 
 .wp-block-image {
+	text-align: center;
+}
+
+.wp-block-embed {
 	text-align: center;
 }
 
