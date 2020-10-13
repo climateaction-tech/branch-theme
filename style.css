@@ -685,7 +685,7 @@ body.high-grid-intensity main.site-main a, body.high-grid-intensity main.site-ma
 	color: #ff7900;
 }
 
-body.moderate-grid-intensity main.site-main {
+body.high-grid-intensity main.site-main {
 	color: #543010;
 }
 
@@ -849,7 +849,7 @@ body.high-grid-intensity .entry-content blockquote {
 
 .site-footer {
 	max-width: 60em;
-	margin: 0 auto;
+	margin: 3em auto;
 }
 
 .site-info {
