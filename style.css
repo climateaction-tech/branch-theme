@@ -861,6 +861,7 @@ body.high-grid-intensity main.site-main {
 .entry-content blockquote p {
 	font-style: italic;
 	line-height: 1.3;
+	padding: 0;
 }
 
 .entry-content blockquote cite {
