@@ -781,6 +781,10 @@ body.high-grid-intensity main.site-main {
 	border-bottom: 2px solid;
 }
 
+.entry-content a {
+	word-break: break-all;
+}
+
 .nav-contents a {
 	color: #212121;
 	text-decoration: none;
