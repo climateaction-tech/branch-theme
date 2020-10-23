@@ -197,14 +197,65 @@ function branch_grid_intensity() {
 					setWithExpiry( 'grid-intensity', index, 3600000 )
 				}
 				let logo
-				console.log({ index })
+				let entryContent = document.querySelector('.entry-content')
+				let figures = document.querySelectorAll('.entry-content .wp-block-image figure, .entry-content figure.wp-block-image');
 				document.querySelector('body').classList.add(`${index}-grid-intensity`)
 				if ( 'high' == index ) {
 					logo = 'orange'
+					document.documentElement.style.setProperty('--bg-colour', '#FFF8F2');
+					document.documentElement.style.setProperty('--hl-colour', '#ff7900');
+					document.documentElement.style.setProperty('--body-colour', '#543010');
+					figures.forEach( function(figure) {
+						let image = figure.querySelector('img');
+						if ( image ) {
+							let figureWidth, figureHeight
+							if ( image.width < entryContent.offsetWidth ) {
+								figureWidth = image.width
+								figureHeight = image.height
+							} else {
+								figureWidth = entryContent.offsetWidth
+								figureHeight = (entryContent.offsetWidth / image.width) * image.height
+							}
+							figure.style.width = figureWidth + 'px'
+							figure.style.height = figureHeight + 'px'
+							figure.addEventListener( "click", showImage )
+							function showImage() {
+								image.style.display = 'block';
+							}
+							const altDiv = document.createElement("div")
+							const altContent = document.createTextNode(image.alt)
+							altDiv.appendChild(altContent);
+							altDiv.className = "carbon-alt";
+							figure.appendChild(altDiv);
+							const showDiv = document.createElement("div");
+							const showContent = document.createTextNode("Show Image");
+							showDiv.appendChild(showContent);
+							showDiv.className = "show-image";
+							figure.appendChild(showDiv);
+						}
+					})
 				} else if ( 'moderate' == index ) {
 					logo = 'blue'
+					document.documentElement.style.setProperty('--bg-colour', '#EFF8FC');
+					document.documentElement.style.setProperty('--hl-colour', '#51aee2');
+					document.documentElement.style.setProperty('--body-colour', '#004884');
+					figures.forEach( function(figure) {
+						let image = figure.querySelector('img');
+						if ( image ) {
+							image.style.display = 'block';
+						}
+					})
 				} else {
 					logo = 'green'
+					document.documentElement.style.setProperty('--bg-colour', '#EEFBF7');
+					document.documentElement.style.setProperty('--hl-colour', '#1cdcb4');
+					document.documentElement.style.setProperty('--body-colour', '#1c6244');
+					figures.forEach( function(figure) {
+						let image = figure.querySelector('img');
+						if ( image ) {
+							image.style.display = 'block';
+						}
+					})
 				}
 				document.querySelector('.logo img').src = '<?php echo esc_url( get_template_directory_uri() . '/images/branch_' ); ?>' + logo + '-01.svg'
 			}
