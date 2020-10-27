@@ -968,6 +968,10 @@ div.show-image {
 	margin: 3em auto;
 }
 
+.site-footer a {
+	padding: .5em;
+}
+
 .site-info {
 	font-family: 'Rubik Bold';
 	text-align: center;
