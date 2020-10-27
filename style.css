@@ -665,6 +665,7 @@ textarea {
 --------------------------------------------------------------*/
 body {
 	background-color: var(--bg-colour);
+	position: relative;
 }
 
 .site-main a, .site-main .entry-title {
@@ -784,10 +785,11 @@ body {
 	text-transform: uppercase;
 }
 
-.entry-content .wp-block-image figure, .entry-content figure.wp-block-image {
+.entry-content .wp-block-image figure span, .entry-content figure.wp-block-image span {
 	position: relative;
-	background-color: white;
+	background-color: #FFDEC1;
 	z-index: 0;
+	cursor: pointer;
 }
 
 div.carbon-alt {
@@ -812,15 +814,6 @@ div.show-image {
 	text-decoration: underline;
 	cursor: pointer;
 	z-index: -1;
-}
-
-.entry-content figure.wp-block-image {
-	display: table;
-}
-
-.entry-content figure.wp-block-image figcaption {
-	display: table-caption;
-	caption-side: bottom;
 }
 
 .entry-content img {
@@ -904,6 +897,12 @@ div.show-image {
 	line-height: 1.085em;
 }
 
+@media (max-width: 500px) {
+	.entry-title {
+		font-size: 2em;
+	}
+}
+
 .entry-title a {
 	text-decoration: none;
 }
@@ -941,16 +940,8 @@ div.show-image {
 	font-style: normal;
 }
 
-body.low-grid-intensity .entry-content blockquote {
-	border-left-color: #1cdcb4;
-}
-
-body.moderate-grid-intensity .entry-content blockquote {
-	border-left-color: #51aee2;
-}
-
-body.high-grid-intensity .entry-content blockquote {
-	border-left-color: #ff7900;
+.entry-content blockquote {
+	border-left-color: var(--hl-colour);
 }
 
 .entry-content ul, .entry-content ol {
@@ -985,6 +976,77 @@ body.high-grid-intensity .entry-content blockquote {
 .site-info a {
 	color: #212121;
 	text-decoration: none;
+}
+
+.table-of-contents {
+	margin-top: -1px;
+	padding: 3em;
+	position: absolute;
+	background-color: var(--bg-colour);
+	transform: translateX(-100%);
+	transition: transform 0.5s;
+	z-index: 2;
+}
+
+.table-of-contents-active {
+	transform: translateX(0);
+}
+
+.table-of-contents a {
+	color: var(--hl-colour);
+	text-decoration: none;
+}
+
+.blackout {
+	background-color: black;
+	left: -100%;
+	opacity: 0%;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transition: opacity 0.5s;
+	z-index: 1;
+}
+
+.blackout-active {
+	display: block;
+	left: 0;
+	opacity: 25%;
+}
+
+.blackout-fading {
+	opacity: 0%;
+}
+
+.carbon-intensity {
+	font-family: 'Rubik Bold';
+	margin-top: 25em;
+	position: absolute;
+	right: -4em;
+	transform: rotate(270deg);
+	text-transform: uppercase;
+}
+
+@media (max-width: 500px) {
+	.carbon-intensity {
+		position: initial;
+		margin: 1em;
+		text-align: right;
+		right: initial;
+		transform: initial;
+	}
+}
+
+.carbon-intensity .energy {
+	padding-right: .5em;
+}
+
+.carbon-intensity .energy svg {
+	padding-top: .2em;
+}
+
+.carbon-intensity .energy svg path {
+	fill: var(--hl-colour);
 }
 
 
