@@ -224,7 +224,12 @@ function branch_grid_intensity() {
 							imgSpan.style.width = figureWidth + 'px';
 							imgSpan.style.height = figureHeight + 'px';
 							imgSpan.style.display = 'inline-block';
-							figure.insertBefore(imgSpan, image);
+							if ( figure.querySelector('a img') ) {
+								imageLink = figure.querySelector('a');
+								figure.insertBefore(imgSpan, imageLink);
+							} else {
+								figure.insertBefore(imgSpan, image);
+							}
 							figure.addEventListener( "click", showImage )
 							function showImage() {
 								image.style.display = 'initial';
