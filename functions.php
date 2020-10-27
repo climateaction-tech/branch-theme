@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '0.1.3' );
+	define( '_S_VERSION', '0.1.4' );
 }
 
 if ( ! function_exists( 'branch_setup' ) ) :
@@ -199,7 +199,8 @@ function branch_grid_intensity() {
 				let logo
 				let entryContent = document.querySelector('.entry-content')
 				let figures = document.querySelectorAll('.entry-content .wp-block-image figure, .entry-content figure.wp-block-image');
-				document.querySelector('body').classList.add(`${index}-grid-intensity`)
+				document.querySelector('body').classList.add(`${index}-grid-intensity`);
+				document.querySelector('.intensity').textContent = index;
 				if ( 'high' == index ) {
 					logo = 'orange'
 					document.documentElement.style.setProperty('--bg-colour', '#FFF8F2');
@@ -216,33 +217,43 @@ function branch_grid_intensity() {
 								figureWidth = entryContent.offsetWidth
 								figureHeight = (entryContent.offsetWidth / image.width) * image.height
 							}
-							figure.style.width = figureWidth + 'px'
-							figure.style.height = figureHeight + 'px'
+							//figure.style.width = figureWidth + 'px'
+							//figure.style.height = figureHeight + 'px'
+							const imgSpan = document.createElement("span");
+							imgSpan.className = image.classList;
+							imgSpan.style.width = figureWidth + 'px';
+							imgSpan.style.height = figureHeight + 'px';
+							imgSpan.style.display = 'inline-block';
+							figure.insertBefore(imgSpan, image);
 							figure.addEventListener( "click", showImage )
 							function showImage() {
-								image.style.display = 'block';
+								image.style.display = 'initial';
+								this.querySelector('span').remove();
 							}
 							const altDiv = document.createElement("div")
 							const altContent = document.createTextNode(image.alt)
 							altDiv.appendChild(altContent);
 							altDiv.className = "carbon-alt";
-							figure.appendChild(altDiv);
+							imgSpan.appendChild(altDiv);
 							const showDiv = document.createElement("div");
 							const showContent = document.createTextNode("Show Image");
 							showDiv.appendChild(showContent);
 							showDiv.className = "show-image";
-							figure.appendChild(showDiv);
+							imgSpan.appendChild(showDiv);
 						}
-					})
+					});
 				} else if ( 'moderate' == index ) {
 					logo = 'blue'
 					document.documentElement.style.setProperty('--bg-colour', '#EFF8FC');
 					document.documentElement.style.setProperty('--hl-colour', '#51aee2');
 					document.documentElement.style.setProperty('--body-colour', '#004884');
+					let re = /(\d{4})\/(\d{2})\//gi;
 					figures.forEach( function(figure) {
 						let image = figure.querySelector('img');
 						if ( image ) {
-							image.style.display = 'block';
+							image.src = image.src.replace(re, "$1/$2/low-res/");
+							image.srcset = image.srcset.replaceAll(re, "$1/$2/low-res/");
+							image.style.display = 'initial';
 						}
 					})
 				} else {
@@ -253,11 +264,34 @@ function branch_grid_intensity() {
 					figures.forEach( function(figure) {
 						let image = figure.querySelector('img');
 						if ( image ) {
-							image.style.display = 'block';
+							image.style.display = 'initial';
 						}
 					})
 				}
-				document.querySelector('.logo img').src = '<?php echo esc_url( get_template_directory_uri() . '/images/branch_' ); ?>' + logo + '-01.svg'
+				document.querySelector('.logo img').src = '<?php echo esc_url( get_template_directory_uri() . '/images/branch_' ); ?>' + logo + '-01.svg';
+				document.querySelector("link[rel*='icon']").href = '<?php echo esc_url( get_template_directory_uri() . '/images/branch_' ); ?>' + logo + '-01.svg';
+
+
+				const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+				const tocLink = document.querySelector('.toc-link');
+				const blackOut = document.querySelector('.blackout');
+				const toc = document.querySelector('.table-of-contents');
+				let tocActive = 0;
+				tocLink.addEventListener( "click", function(event) {
+					event.preventDefault();
+					if ( 1 == tocActive ) {
+						blackOut.classList.add('blackout-fading');
+						setTimeout( function() {
+							blackOut.classList.remove('blackout-active');
+							blackOut.classList.remove('blackout-fading');
+							tocActive = 0;
+						}, 500);
+					} else {
+						blackOut.classList.add('blackout-active');
+						tocActive = 1;
+					}
+					toc.classList.toggle('table-of-contents-active');
+				}, false);
 			}
 			main()
 		</script>
