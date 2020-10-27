@@ -13,6 +13,9 @@
 
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
+			<a href="<?php echo esc_url( get_permalink( 546 ) ); ?>">
+				<?php echo esc_html__( 'Privacy notice', 'branch' ); ?>
+			</a>|
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'branch' ) ); ?>">
 				<?php
 				/* translators: %s: CMS name, i.e. WordPress. */
