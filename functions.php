@@ -154,6 +154,7 @@ add_action( 'wp_enqueue_scripts', 'branch_scripts' );
 
 function branch_grid_intensity() {
 	?>
+		<script async defer src="https://scripts.withcabin.com/hello.js"></script>
 		<script src="<?php echo esc_url( get_template_directory_uri() . '/js/gridintensity.browser.min.js' ); ?>"></script>
 		<script>
 			function setWithExpiry(key, value, ttl) {
