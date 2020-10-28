@@ -332,3 +332,11 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Enable upload for webp image files.
+ */
+function branch_upload_mimes( $existing_mimes ) {
+	$existing_mimes['webp'] = 'image/webp';
+	return $existing_mimes;
+}
+add_filter( 'mime_types', 'branch_upload_mimes' );
