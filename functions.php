@@ -228,6 +228,9 @@ function branch_grid_intensity() {
 							if ( figure.querySelector('a img') ) {
 								imageLink = figure.querySelector('a');
 								figure.insertBefore(imgSpan, imageLink);
+							} else if ( figure.querySelector('picture img') ) {
+								picture = figure.querySelector('picture');
+								figure.insertBefore(imgSpan, picture);
 							} else {
 								figure.insertBefore(imgSpan, image);
 							}
@@ -260,6 +263,10 @@ function branch_grid_intensity() {
 							image.src = image.src.replace(re, "$1/$2/low-res/");
 							image.srcset = image.srcset.replaceAll(re, "$1/$2/low-res/");
 							image.style.display = 'initial';
+						}
+						let pictureSource = figure.querySelector('picture source');
+						if ( pictureSource ) {
+							pictureSource.srcset = image.srcset.replaceAll(re, "$1/$2/low-res/");
 						}
 					})
 				} else {
