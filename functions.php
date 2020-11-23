@@ -266,7 +266,7 @@ function branch_grid_intensity() {
 						}
 						let pictureSource = figure.querySelector('picture source');
 						if ( pictureSource ) {
-							pictureSource.srcset = image.srcset.replaceAll(re, "$1/$2/low-res/");
+							pictureSource.srcset = pictureSource.srcset.replaceAll(re, "$1/$2/low-res/");
 						}
 					})
 				} else {
