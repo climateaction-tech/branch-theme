@@ -340,6 +340,12 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 /**
+ * Create custom posts and taxonomies.
+ */
+require get_template_directory() . '/inc/custom-posts-and-taxonomies.php';
+
+
+/**
  * Enable upload for webp image files.
  */
 function branch_upload_mimes( $existing_mimes ) {
