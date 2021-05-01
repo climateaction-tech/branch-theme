@@ -339,10 +339,11 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-/**
- * Create custom posts and taxonomies.
- */
+// Create custom posts and taxonomies.
 require get_template_directory() . '/inc/custom-posts-and-taxonomies.php';
+
+// Define custom rewrite rules / permalink structure.
+require get_template_directory() . '/inc/rewrite_rules.php';
 
 
 /**
