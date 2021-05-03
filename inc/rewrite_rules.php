@@ -22,20 +22,11 @@ function issue_rewrite_tag_and_rewrite_rules() {
 	add_rewrite_tag( '%issue%', '([^/]+)' );
 
 	// This targets posts.
-	// Example url 'branch.climateaction.tech/issue-1/foreword/'.
+	// Example url 'branch.climateaction.tech/issues/issue-1/foreword/'.
 	// Expects '%issue%' to be added to permalink settings page.
 	add_rewrite_rule(
-		'([^/]+)/([^/]+)/?$', // String, followed by a string, followed by slash.
+		'issues/([^/]+)/([^/]+)/?$', // String, followed by a string (issue term), followed by slash (postname).
 		'index.php?issue=$matches[1]&pagename=$matches[2]',
-		'bottom'
-	);
-
-	// This targets pages.
-	// Example pattern 'https://branch.climateaction.tech/about/'.
-	// Without this regular pages were 404-ing.
-	add_rewrite_rule(
-		'([^/]+)/?$', // String followed by slash.
-		'index.php?pagename=$matches[1]',
 		'bottom'
 	);
 
