@@ -73,10 +73,7 @@
 	<div class="blackout"></div>
 
 	<div class="table-of-contents">
-		<?php
-		$toc = get_page_by_title( 'contents' );
-		echo apply_filters( 'the_content', $toc->post_content );
-		?>
+		<?php display_toc_contents(); ?>
 	</div>
 
 	<div class="carbon-intensity">
