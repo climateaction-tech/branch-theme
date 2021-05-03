@@ -38,7 +38,10 @@ function branch_create_issue_taxonomy() {
 				'public'       => true,
 				'show_ui'      => true,
 				'query_var'    => 'issue',
-				'rewrite'      => true,
+				'rewrite'      => array(
+					'slug'       => 'issues',
+					'with_front' => false,
+				),
 			)
 		);
 	}
