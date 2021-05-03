@@ -37,6 +37,7 @@ function branch_create_issue_taxonomy() {
 				'labels'       => $labels,
 				'public'       => true,
 				'show_ui'      => true,
+				'show_in_rest' => true,
 				'query_var'    => 'issue',
 				'rewrite'      => array(
 					'slug'       => 'issues',
