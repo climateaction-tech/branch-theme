@@ -66,17 +66,22 @@
 		</div>
 	</header><!-- #masthead -->
 
-	<div id="nav-contents" class="nav-contents">
-		<p><a class="toc-link" href="#"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/Contents_icon.svg" /> Contents</a></p>
-	</div>
+	<?php
+	// We don't want to see the content on any of the global pages.
+	// Only articles and the issue archive page.
+	if ( 'post' === get_post_type() ) :
+		?>
+		<div id="nav-contents" class="nav-contents">
+			<p><a class="toc-link" href="#"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/Contents_icon.svg" /> Contents</a></p>
+		</div>
+		<?php
+	endif;
+	?>
 
 	<div class="blackout"></div>
 
 	<div class="table-of-contents">
-		<?php
-		$toc = get_page_by_title( 'contents' );
-		echo apply_filters( 'the_content', $toc->post_content );
-		?>
+		<?php display_toc_contents(); ?>
 	</div>
 
 	<div class="carbon-intensity">
