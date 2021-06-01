@@ -50,6 +50,12 @@
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 
+		<div class="site-credit">
+			<a class="site-credit__link" href="https://climateaction.tech/">
+				<img class="site-credit__image" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/Climate_Action_Tech_Logo.svg" />
+			</a>
+		</div>
+
 		<nav id="site-navigation" class="main-navigation">
 			<?php
 			wp_nav_menu(
@@ -60,10 +66,6 @@
 			);
 			?>
 		</nav><!-- #site-navigation -->
-
-		<div class="site-credit">
-			<a href="https://climateaction.tech/"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/Climate_Action_Tech_Logo.svg" /></a>
-		</div>
 	</header><!-- #masthead -->
 
 	<?php
