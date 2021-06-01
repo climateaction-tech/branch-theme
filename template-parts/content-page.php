@@ -20,6 +20,16 @@
 		<?php
 		the_content();
 
+		if ( is_front_page() ) :
+			$featured_issue = get_field( 'featured_issue' );
+
+			if ( ! empty( $featured_issue ) ) :
+
+				echo term_description( $featured_issue );
+			endif;
+
+		endif;
+
 		wp_link_pages(
 			array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'branch' ),
