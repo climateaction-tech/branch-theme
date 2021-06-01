@@ -345,6 +345,8 @@ require get_template_directory() . '/inc/custom-posts-and-taxonomies.php';
 // Define custom rewrite rules / permalink structure.
 require get_template_directory() . '/inc/rewrite_rules.php';
 
+// Functions supporting the contents sidebar / ToC.
+require get_template_directory() . '/inc/contents-sidebar.php';
 
 /**
  * Enable upload for webp image files.
