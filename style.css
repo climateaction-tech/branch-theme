@@ -185,6 +185,15 @@ sup {
 	top: -0.5em;
 }
 
+::selection {
+	background-color: #1E1E1E;
+	color: white;
+}
+::-moz-selection {
+	background-color: #1E1E1E;
+	color: white;
+}
+
 /* Embedded content
 	 ========================================================================== */
 
@@ -880,7 +889,7 @@ body {
 
 .entry-content .wp-block-image figure span, .entry-content figure.wp-block-image span {
 	position: relative;
-	background-color: #FFDEC1;
+	background-color: #FFDD9C;
 	z-index: 0;
 	cursor: pointer;
 }
