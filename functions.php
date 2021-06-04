@@ -154,160 +154,160 @@ add_action( 'wp_enqueue_scripts', 'branch_scripts' );
 
 function branch_grid_intensity() {
 	?>
-		<script async defer src="https://scripts.withcabin.com/hello.js"></script>
-		<script src="<?php echo esc_url( get_template_directory_uri() . '/js/gridintensity.browser.min.js' ); ?>"></script>
-		<script>
-			function setWithExpiry(key, value, ttl) {
-				const now = new Date()
+	<script async defer src="https://scripts.withcabin.com/hello.js"></script>
+	<script src="<?php echo esc_url( get_template_directory_uri() . '/js/gridintensity.browser.min.js' ); ?>"></script>
+	<script>
+		function setWithExpiry(key, value, ttl) {
+			const now = new Date()
 
-				// `item` is an object which contains the original value
-				// as well as the time when it's supposed to expire
-				const item = {
-					value: value,
-					expiry: now.getTime() + ttl,
-				}
-				localStorage.setItem(key, JSON.stringify(item))
+			// `item` is an object which contains the original value
+			// as well as the time when it's supposed to expire
+			const item = {
+				value: value,
+				expiry: now.getTime() + ttl,
 			}
+			localStorage.setItem(key, JSON.stringify(item))
+		}
 
-			function getWithExpiry(key) {
-				const itemStr = localStorage.getItem(key)
-				// if the item doesn't exist, return null
-				if (!itemStr) {
-					return null
-				}
-				const item = JSON.parse(itemStr)
-				const now = new Date()
-				// compare the expiry time of the item with the current time
-				if (now.getTime() > item.expiry) {
-					// If the item is expired, delete the item from storage
-					// and return null
-					localStorage.removeItem(key)
-					return null
-				}
-				return item.value
+		function getWithExpiry(key) {
+			const itemStr = localStorage.getItem(key)
+			// if the item doesn't exist, return null
+			if (!itemStr) {
+				return null
 			}
+			const item = JSON.parse(itemStr)
+			const now = new Date()
+			// compare the expiry time of the item with the current time
+			if (now.getTime() > item.expiry) {
+				// If the item is expired, delete the item from storage
+				// and return null
+				localStorage.removeItem(key)
+				return null
+			}
+			return item.value
+		}
 
-			async function main() {
-				let index
-				if ( null != getWithExpiry( 'grid-intensity' ) ) {
-					index = getWithExpiry( 'grid-intensity' )
-				} else {
-					const grid = new GridIntensity()
-					await grid.setup()
-					index = await grid.getCarbonIndex()
-					setWithExpiry( 'grid-intensity', index, 3600000 )
-				}
-				let logo
-				let entryContent = document.querySelector('.entry-content')
-				let figures = document.querySelectorAll('.entry-content .wp-block-image figure, .entry-content figure.wp-block-image');
-				document.querySelector('body').classList.add(`${index}-grid-intensity`);
-				document.querySelector('.intensity').textContent = index;
-				if ( 'high' == index ) {
-					logo = 'orange'
-					document.documentElement.style.setProperty('--bg-colour', '#FFF8F2');
-					document.documentElement.style.setProperty('--hl-colour', '#ff7900');
-					document.documentElement.style.setProperty('--body-colour', '#543010');
-					figures.forEach( function(figure) {
-						let image = figure.querySelector('img');
-						if ( image ) {
-							let figureWidth, figureHeight
-							if ( image.width < entryContent.offsetWidth ) {
-								figureWidth = image.width
-								figureHeight = image.height
-							} else {
-								figureWidth = entryContent.offsetWidth
-								figureHeight = (entryContent.offsetWidth / image.width) * image.height
-							}
-							//figure.style.width = figureWidth + 'px'
-							//figure.style.height = figureHeight + 'px'
-							const imgSpan = document.createElement("span");
-							imgSpan.className = image.classList;
-							imgSpan.style.width = figureWidth + 'px';
-							imgSpan.style.height = figureHeight + 'px';
-							imgSpan.style.display = 'inline-block';
-							if ( figure.querySelector('a img') ) {
-								imageLink = figure.querySelector('a');
-								figure.insertBefore(imgSpan, imageLink);
-							} else if ( figure.querySelector('picture img') ) {
-								picture = figure.querySelector('picture');
-								figure.insertBefore(imgSpan, picture);
-							} else {
-								figure.insertBefore(imgSpan, image);
-							}
-							figure.addEventListener( "click", showImage )
-							function showImage() {
-								image.style.display = 'initial';
-								this.querySelector('span').remove();
-							}
-							const altDiv = document.createElement("div")
-							const altContent = document.createTextNode(image.alt)
-							altDiv.appendChild(altContent);
-							altDiv.className = "carbon-alt";
-							imgSpan.appendChild(altDiv);
-							const showDiv = document.createElement("div");
-							const showContent = document.createTextNode("Show Image");
-							showDiv.appendChild(showContent);
-							showDiv.className = "show-image";
-							imgSpan.appendChild(showDiv);
+		async function main() {
+			let index
+			if ( null != getWithExpiry( 'grid-intensity' ) ) {
+				index = getWithExpiry( 'grid-intensity' )
+			} else {
+				const grid = new GridIntensity()
+				await grid.setup()
+				index = await grid.getCarbonIndex()
+				setWithExpiry( 'grid-intensity', index, 3600000 )
+			}
+			let logo
+			let entryContent = document.querySelector('.entry-content')
+			let figures = document.querySelectorAll('.entry-content .wp-block-image figure, .entry-content figure.wp-block-image');
+			document.querySelector('body').classList.add(`${index}-grid-intensity`);
+			document.querySelector('.intensity').textContent = index;
+
+			if ( 'high' == index ) {
+				logo = 'black'
+				document.documentElement.style.setProperty('--bg-colour', '#FFBF43');
+				document.documentElement.style.setProperty('--hl-colour', '#472E00');
+				document.documentElement.style.setProperty('--body-colour', '#1E1E1E');
+				figures.forEach( function(figure) {
+					let image = figure.querySelector('img');
+					if ( image ) {
+						let figureWidth, figureHeight
+						if ( image.width < entryContent.offsetWidth ) {
+							figureWidth = image.width
+							figureHeight = image.height
+						} else {
+							figureWidth = entryContent.offsetWidth
+							figureHeight = (entryContent.offsetWidth / image.width) * image.height
 						}
-					});
-				} else if ( 'moderate' == index ) {
-					logo = 'blue'
-					document.documentElement.style.setProperty('--bg-colour', '#EFF8FC');
-					document.documentElement.style.setProperty('--hl-colour', '#51aee2');
-					document.documentElement.style.setProperty('--body-colour', '#004884');
-					let re = /(\d{4})\/(\d{2})\//gi;
-					figures.forEach( function(figure) {
-						let image = figure.querySelector('img');
-						if ( image ) {
-							image.src = image.src.replace(re, "$1/$2/low-res/");
-							image.srcset = image.srcset.replaceAll(re, "$1/$2/low-res/");
+						//figure.style.width = figureWidth + 'px'
+						//figure.style.height = figureHeight + 'px'
+						const imgSpan = document.createElement("span");
+						imgSpan.className = image.classList;
+						imgSpan.style.width = figureWidth + 'px';
+						imgSpan.style.height = figureHeight + 'px';
+						imgSpan.style.display = 'inline-block';
+						if ( figure.querySelector('a img') ) {
+							imageLink = figure.querySelector('a');
+							figure.insertBefore(imgSpan, imageLink);
+						} else if ( figure.querySelector('picture img') ) {
+							picture = figure.querySelector('picture');
+							figure.insertBefore(imgSpan, picture);
+						} else {
+							figure.insertBefore(imgSpan, image);
+						}
+						figure.addEventListener( "click", showImage )
+						function showImage() {
 							image.style.display = 'initial';
+							this.querySelector('span').remove();
 						}
-						let pictureSource = figure.querySelector('picture source');
-						if ( pictureSource ) {
-							pictureSource.srcset = pictureSource.srcset.replaceAll(re, "$1/$2/low-res/");
-						}
-					})
-				} else {
-					logo = 'green'
-					document.documentElement.style.setProperty('--bg-colour', '#EEFBF7');
-					document.documentElement.style.setProperty('--hl-colour', '#1cdcb4');
-					document.documentElement.style.setProperty('--body-colour', '#1c6244');
-					figures.forEach( function(figure) {
-						let image = figure.querySelector('img');
-						if ( image ) {
-							image.style.display = 'initial';
-						}
-					})
-				}
-				document.querySelector('.logo img').src = '<?php echo esc_url( get_template_directory_uri() . '/images/branch_' ); ?>' + logo + '-01.svg';
-				document.querySelector("link[rel*='icon']").href = '<?php echo esc_url( get_template_directory_uri() . '/images/branch_' ); ?>' + logo + '-01.svg';
-
-
-				const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
-				const tocLink = document.querySelector('.toc-link');
-				const blackOut = document.querySelector('.blackout');
-				const toc = document.querySelector('.table-of-contents');
-				let tocActive = 0;
-				tocLink.addEventListener( "click", function(event) {
-					event.preventDefault();
-					if ( 1 == tocActive ) {
-						blackOut.classList.add('blackout-fading');
-						setTimeout( function() {
-							blackOut.classList.remove('blackout-active');
-							blackOut.classList.remove('blackout-fading');
-							tocActive = 0;
-						}, 500);
-					} else {
-						blackOut.classList.add('blackout-active');
-						tocActive = 1;
+						const altDiv = document.createElement("div")
+						const altContent = document.createTextNode(image.alt)
+						altDiv.appendChild(altContent);
+						altDiv.className = "carbon-alt";
+						imgSpan.appendChild(altDiv);
+						const showDiv = document.createElement("div");
+						const showContent = document.createTextNode("Show Image");
+						showDiv.appendChild(showContent);
+						showDiv.className = "show-image";
+						imgSpan.appendChild(showDiv);
 					}
-					toc.classList.toggle('table-of-contents-active');
-				}, false);
+				});
+			} else if ( 'moderate' == index ) {
+				logo = 'black'
+				document.documentElement.style.setProperty('--bg-colour', '#87FEFF');
+				document.documentElement.style.setProperty('--hl-colour', '#000000');
+				document.documentElement.style.setProperty('--body-colour', '#1E1E1E');
+				let re = /(\d{4})\/(\d{2})\//gi;
+				figures.forEach( function(figure) {
+					let image = figure.querySelector('img');
+					if ( image ) {
+						image.src = image.src.replace(re, "$1/$2/low-res/");
+						image.srcset = image.srcset.replaceAll(re, "$1/$2/low-res/");
+						image.style.display = 'initial';
+					}
+					let pictureSource = figure.querySelector('picture source');
+					if ( pictureSource ) {
+						pictureSource.srcset = pictureSource.srcset.replaceAll(re, "$1/$2/low-res/");
+					}
+				})
+			} else {
+				logo = 'black'
+				document.documentElement.style.setProperty('--bg-colour', '#C8FF63');
+				document.documentElement.style.setProperty('--hl-colour', '#005C20');
+				document.documentElement.style.setProperty('--body-colour', '#1E1E1E');
+				figures.forEach( function(figure) {
+					let image = figure.querySelector('img');
+					if ( image ) {
+						image.style.display = 'initial';
+					}
+				})
 			}
-			main()
-		</script>
+			document.querySelector('.logo img').src = '<?php echo esc_url( get_template_directory_uri() . '/images/branch_' ); ?>' + logo + '-01.svg';
+			document.querySelector("link[rel*='icon']").href = '<?php echo esc_url( get_template_directory_uri() . '/images/branch_' ); ?>' + logo + '-01.svg';
+
+			const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+			const tocLink = document.querySelector('.toc-link');
+			const blackOut = document.querySelector('.blackout');
+			const toc = document.querySelector('.table-of-contents');
+			let tocActive = 0;
+			tocLink.addEventListener( "click", function(event) {
+				event.preventDefault();
+				if ( 1 == tocActive ) {
+					blackOut.classList.add('blackout-fading');
+					setTimeout( function() {
+						blackOut.classList.remove('blackout-active');
+						blackOut.classList.remove('blackout-fading');
+						tocActive = 0;
+					}, 500);
+				} else {
+					blackOut.classList.add('blackout-active');
+					tocActive = 1;
+				}
+				toc.classList.toggle('table-of-contents-active');
+			}, false);
+		}
+		main()
+	</script>
 	<?php
 }
 add_action( 'wp_footer', 'branch_grid_intensity' );
