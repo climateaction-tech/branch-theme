@@ -255,7 +255,7 @@ function branch_grid_intensity() {
 			} else if ( 'moderate' == index ) {
 				logo = 'black'
 				document.documentElement.style.setProperty('--bg-colour', '#87FEFF');
-				document.documentElement.style.setProperty('--hl-colour', '#000000');
+				document.documentElement.style.setProperty('--hl-colour', '#00535C');
 				document.documentElement.style.setProperty('--body-colour', '#1E1E1E');
 				let re = /(\d{4})\/(\d{2})\//gi;
 				figures.forEach( function(figure) {
