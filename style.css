@@ -799,7 +799,6 @@ body {
 .main-navigation {
 	align-self: center;
 	height: auto;
-	margin-top: 4px;
 }
 .menu-main-navigation-container {
 	height: 100%;
@@ -832,6 +831,7 @@ body {
 .main-navigation li a {
 	color: #212121;
 	padding: 1em;
+	margin-top: 4px;
 }
 @media screen and (min-width: 25em) {
 	.main-navigation li a {
