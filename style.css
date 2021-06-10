@@ -677,13 +677,14 @@ body {
 	position: relative;
 }
 
-.site-main a, .site-main .entry-title {
-	color: var(--hl-colour);
-}
-
 .site-main {
 	color: var(--body-colour);
 }
+
+.site-main a {
+	color: var(--hl-colour);
+}
+
 /*body.low-grid-intensity {*/
 	/*background-color: #EEFBF7;*/
 /*}*/
@@ -987,7 +988,7 @@ div.show-image {
 
 .entry-content h4 {
 	letter-spacing: .1em;
-	max-width: 36em;
+	max-width: 35em;
 	padding-left: 1.3em;
 	padding-right: 1.3em;
 	text-align: center;
