@@ -187,23 +187,15 @@ function branch_grid_intensity() {
 			return item.value
 		}
 
-		async function main() {
-			let index
-			if ( null != getWithExpiry( 'grid-intensity' ) ) {
-				index = getWithExpiry( 'grid-intensity' )
-			} else {
-				const grid = new GridIntensity()
-				await grid.setup()
-				index = await grid.getCarbonIndex()
-				setWithExpiry( 'grid-intensity', index, 3600000 )
-			}
+		function changeGridIntensity( intensity ) {
 			let logo
 			let entryContent = document.querySelector('.entry-content')
 			let figures = document.querySelectorAll('.entry-content .wp-block-image figure, .entry-content figure.wp-block-image');
-			document.querySelector('body').classList.add(`${index}-grid-intensity`);
-			document.querySelector('.intensity').textContent = index;
 
-			if ( 'high' == index ) {
+			document.querySelector('body').classList.add(`${intensity}-grid-intensity`);
+			document.querySelector('.intensity').textContent = intensity;
+
+			if ( 'high' == intensity ) {
 				logo = 'black'
 				document.documentElement.style.setProperty('--bg-colour', '#FFBF43');
 				document.documentElement.style.setProperty('--hl-colour', '#472E00');
@@ -252,7 +244,7 @@ function branch_grid_intensity() {
 						imgSpan.appendChild(showDiv);
 					}
 				});
-			} else if ( 'moderate' == index ) {
+			} else if ( 'moderate' == intensity ) {
 				logo = 'black'
 				document.documentElement.style.setProperty('--bg-colour', '#87FEFF');
 				document.documentElement.style.setProperty('--hl-colour', '#00535C');
@@ -284,6 +276,20 @@ function branch_grid_intensity() {
 			}
 			document.querySelector('.logo img').src = '<?php echo esc_url( get_template_directory_uri() . '/images/branch_' ); ?>' + logo + '-01.svg';
 			document.querySelector("link[rel*='icon']").href = '<?php echo esc_url( get_template_directory_uri() . '/images/branch_' ); ?>' + logo + '-01.svg';
+		}
+
+		async function main() {
+			let index
+			if ( null != getWithExpiry( 'grid-intensity' ) ) {
+				index = getWithExpiry( 'grid-intensity' )
+			} else {
+				const grid = new GridIntensity()
+				await grid.setup()
+				index = await grid.getCarbonIndex()
+				setWithExpiry( 'grid-intensity', index, 3600000 )
+			}
+
+			changeGridIntensity( index );
 
 			const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 			const tocLink = document.querySelector('.toc-link');
