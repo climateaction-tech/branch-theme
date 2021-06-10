@@ -902,6 +902,12 @@ body {
 	cursor: pointer;
 }
 
+.entry-content figcaption {
+	margin: 0 auto 1.5em;
+	max-width: 35em;
+	text-align: center;
+}
+
 div.carbon-alt {
 	position: absolute;
 	width: 80%;
@@ -1075,6 +1081,10 @@ div.show-image {
 
 .wp-block-image {
 	text-align: center;
+}
+.wp-block-gallery .blocks-gallery-grid {
+	margin-bottom: 0;
+	padding: 0;
 }
 
 .wp-block-embed {
