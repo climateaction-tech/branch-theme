@@ -195,8 +195,10 @@ function branch_grid_intensity() {
 			document.querySelector('body').classList.add(`${intensity}-grid-intensity`);
 			document.querySelector('.intensity').textContent = intensity;
 
+			intensity = 'moderate';
+
 			if ( 'high' == intensity ) {
-				logo = 'black'
+				logo = 'orange'
 				document.documentElement.style.setProperty('--bg-colour', '#FFBF43');
 				document.documentElement.style.setProperty('--hl-colour', '#472E00');
 				document.documentElement.style.setProperty('--body-colour', '#1E1E1E');
@@ -245,7 +247,7 @@ function branch_grid_intensity() {
 					}
 				});
 			} else if ( 'moderate' == intensity ) {
-				logo = 'black'
+				logo = 'blue'
 				document.documentElement.style.setProperty('--bg-colour', '#87FEFF');
 				document.documentElement.style.setProperty('--hl-colour', '#00535C');
 				document.documentElement.style.setProperty('--body-colour', '#1E1E1E');
@@ -263,7 +265,7 @@ function branch_grid_intensity() {
 					}
 				})
 			} else {
-				logo = 'black'
+				logo = 'green'
 				document.documentElement.style.setProperty('--bg-colour', '#C8FF63');
 				document.documentElement.style.setProperty('--hl-colour', '#005C20');
 				document.documentElement.style.setProperty('--body-colour', '#1E1E1E');
@@ -274,8 +276,8 @@ function branch_grid_intensity() {
 					}
 				})
 			}
-			document.querySelector('.logo img').src = '<?php echo esc_url( get_template_directory_uri() . '/images/branch_' ); ?>' + logo + '-01.svg';
-			document.querySelector("link[rel*='icon']").href = '<?php echo esc_url( get_template_directory_uri() . '/images/branch_' ); ?>' + logo + '-01.svg';
+			document.querySelector('.logo img').src = '<?php echo esc_url( get_template_directory_uri() . '/images/branch_' ); ?>' + logo + '-02.svg';
+			document.querySelector("link[rel*='icon']").href = '<?php echo esc_url( get_template_directory_uri() . '/images/branch_' ); ?>' + logo + '-02.svg';
 		}
 
 		async function main() {
