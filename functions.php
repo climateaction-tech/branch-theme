@@ -195,8 +195,6 @@ function branch_grid_intensity() {
 			document.querySelector('body').classList.add(`${intensity}-grid-intensity`);
 			document.querySelector('.intensity').textContent = intensity;
 
-			intensity = 'moderate';
-
 			if ( 'high' == intensity ) {
 				logo = 'orange'
 				document.documentElement.style.setProperty('--bg-colour', '#FFBF43');
