@@ -26,8 +26,9 @@
  * It was the only non JQuery plugin I could find, but sadly its not under active dev anymore.
  */
 var selector = new Selectr( '#carbon-switcher-toggle', {
+	defaultSelected: false,
 	searchable: false,
-	width: 300
+	width: 260
 });
 
 // Attach event listener to the select element.
