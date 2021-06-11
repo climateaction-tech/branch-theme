@@ -42,6 +42,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	- Media
 	- Captions
 	- Galleries
+	- Carbon intensity switcher
 # plugins
 	- Jetpack infinite scroll
 # Utilities
@@ -868,19 +869,22 @@ body {
 	max-width: 90px;
 }
 
-.nav-contents {
-	padding: 2em 0.75em;
+.secondary-nav {
+	padding: 0 0.75em;
+	display: flex;
+	align-items: center;
 	border-bottom: 1px solid gray;
 	letter-spacing: 0.07em;
 }
+
 @media screen and (min-width: 37.5em) {
-	.nav-contents {
+	.secondary-nav {
 		padding-left: 1.6em;
 		padding-right: 1.6em;
 	}
 }
 @media screen and (min-width: 54em) {
-	.nav-contents {
+	.secondary-nav {
 		padding-left: 2.4em;
 		padding-right: 2.4em;
 	}
@@ -1446,6 +1450,22 @@ div.show-image {
 .gallery-caption {
 	display: block;
 }
+
+/* Carbon intensity switcher
+--------------------------------------------- */
+.carbon-switcher {
+	flex: 1 0 0;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 100%;
+	text-transform: uppercase;
+	font-family: 'Rubik Bold';
+}
+.carbon-switcher h4 {
+	font-weight: normal;
+}
+
 
 /*--------------------------------------------------------------
 # Plugins

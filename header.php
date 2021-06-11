@@ -20,6 +20,7 @@
 	<link rel="preload" href="<?php echo esc_url( get_template_directory_uri() ); ?>/fonts/Rubik-Bold.woff2" as="font" type="font/woff2" crossorigin>
 
 	<?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -68,25 +69,27 @@
 		</div>
 	</header><!-- #masthead -->
 
-	<?php
-	// We don't want to see the content on any of the global pages.
-	// Only articles and the issue archive page.
-	if ( 'post' === get_post_type() ) :
-		?>
-		<div id="nav-contents" class="nav-contents">
-			<p><a class="toc-link" href="#"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/Contents_icon.svg" /> Contents</a></p>
-		</div>
+	<div class="secondary-nav">
 		<?php
-	endif;
-	?>
+		// We don't want to see the content on any of the global pages.
+		// Only articles and the issue archive page.
+		if ( 'post' === get_post_type() ) :
+			?>
+			<div id="nav-contents" class="nav-contents">
+				<p><a class="toc-link" href="#"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/Contents_icon.svg" /> Contents</a></p>
+			</div>
+			<?php
+		endif;
+		?>
+
+		<?php get_template_part( 'template-parts/carbon-switcher/carbon-switcher' ); ?>
+	</div>
 
 	<div class="blackout"></div>
 
 	<div class="table-of-contents">
 		<?php display_toc_contents(); ?>
 	</div>
-
-	<?php get_template_part( 'template-parts/carbon-switcher/carbon-switcher' ); ?>
 
 	<div class="carbon-intensity">
 		<span class="energy"><?php echo file_get_contents( get_template_directory() . '/images/energy.svg' ); ?></span> <span class="intensity">Unknown</span> grid intensity
