@@ -995,10 +995,10 @@ div.show-image {
 .entry-content h4 {
 	letter-spacing: .1em;
 	max-width: 35em;
-	padding-left: 1.3em;
-	padding-right: 1.3em;
-	text-align: center;
+	margin: 0 auto 0.8em;
 	text-transform: uppercase;
+	text-align: left;
+	font-size: 1.1em;
 }
 
 .entry-content h2 a {
