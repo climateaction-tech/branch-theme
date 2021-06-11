@@ -6,6 +6,16 @@
  */
  .selectr-container {
 	position: relative;
+	display: inline-block;
+	margin-bottom: -5px;
+	margin-left: 0.75em;
+	width: 100%;
+}
+
+@media screen and (min-width: 33em) {
+	.selectr-container {
+		width: auto;
+	}
 }
 
 .selectr-container li {
@@ -54,14 +64,13 @@
 	z-index: 1;
 	box-sizing: border-box;
 	width: 100%;
-	padding: 7px 28px 7px 14px;
 	cursor: pointer;
 }
 
 .selectr-selected::before {
 	position: absolute;
-	top: 50%;
-	right: 10px;
+	top: 40%;
+	right: 0;
 	width: 0;
 	height: 0;
 	content: '';
@@ -85,9 +94,12 @@
 .selectr-label {
 	display: none;
 	overflow: hidden;
-	width: 100%;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+	padding-left: 5px;
+	padding-right: 15px;
+	position: relative;
+	border-bottom: solid 3px var(--hl-colour);
 }
 
 .selectr-placeholder {
@@ -124,16 +136,16 @@
 .selectr-options-container {
 	position: absolute;
 	z-index: 10000;
-	top: calc(100% - 1px);
-	left: 0;
+	top: calc(100% + 1.2em ); /* Same as vertical padding on ssecondary nav bar */
+	right: 0;
 	display: none;
 	box-sizing: border-box;
-	width: 100%;
+	min-width: 260px;
 	border-width: 0 1px 1px;
 	border-style: solid;
 	border-color: transparent #999 #999;
 	border-radius: 0 0 3px 3px;
-	background-color: #fff;
+	background-color: var(--bg-colour);
 }
 
 .selectr-container.open .selectr-options-container {
@@ -262,7 +274,7 @@
 	display: none;
 	overflow-x: auto;
 	overflow-y: scroll;
-	max-height: 200px;
+	/* max-height: 200px; */
 	margin: 0;
 	padding: 0;
 }
@@ -276,10 +288,11 @@
 .selectr-option {
 	position: relative;
 	display: block;
-	padding: 5px 20px;
+	padding: 1.2em;
 	list-style: outside none none;
 	cursor: pointer;
 	font-weight: normal;
+	border-top: 1px solid #999;
 }
 
 .selectr-options.optgroups > .selectr-option {
@@ -302,12 +315,13 @@
 }
 
 .selectr-option.selected {
-	background-color: #ddd;
+	color: #fff;
+	background-color: var(--hl-colour);
 }
 
 .selectr-option.active {
 	color: #fff;
-	background-color: #5897fb;
+	background-color: #111;
 }
 
 .selectr-option.disabled {
@@ -341,7 +355,7 @@
 }
 
 .has-selected .selectr-label {
-	display: block;
+	display: inline-block;
 }
 
 /* TAGGABLE */
