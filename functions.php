@@ -296,21 +296,24 @@ function branch_grid_intensity() {
 			const blackOut = document.querySelector('.blackout');
 			const toc = document.querySelector('.table-of-contents');
 			let tocActive = 0;
-			tocLink.addEventListener( "click", function(event) {
-				event.preventDefault();
-				if ( 1 == tocActive ) {
-					blackOut.classList.add('blackout-fading');
-					setTimeout( function() {
-						blackOut.classList.remove('blackout-active');
-						blackOut.classList.remove('blackout-fading');
-						tocActive = 0;
-					}, 500);
-				} else {
-					blackOut.classList.add('blackout-active');
-					tocActive = 1;
-				}
-				toc.classList.toggle('table-of-contents-active');
-			}, false);
+
+			if ( tocLink !== null ) {
+				tocLink.addEventListener( "click", function(event) {
+					event.preventDefault();
+					if ( 1 == tocActive ) {
+						blackOut.classList.add('blackout-fading');
+						setTimeout( function() {
+							blackOut.classList.remove('blackout-active');
+							blackOut.classList.remove('blackout-fading');
+							tocActive = 0;
+						}, 500);
+					} else {
+						blackOut.classList.add('blackout-active');
+						tocActive = 1;
+					}
+					toc.classList.toggle('table-of-contents-active');
+				}, false);
+			}
 		}
 		main()
 	</script>
