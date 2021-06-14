@@ -3,23 +3,6 @@
  */
 
 
-// document.addEventListener('input', function (event) {
-
-// 	console.log( event.target );
-
-// 	// Only run on our select menu.
-// 	if (event.target.id !== 'carbon-switcher-toggle') return;
-
-// 	// Change the intensity as required.
-// 	if ( event.target.value === 'live' ) {
-// 		changeGridIntensity( getWithExpiry( 'grid-intensity' ) );
-// 	} else {
-// 		changeGridIntensity( event.target.value );
-// 	}
-	
-// }, false);
-
-
 /**
  * Initialise the select box styling framework.
  * We're using Selectr: https://github.com/Mobius1/Selectr
@@ -32,13 +15,27 @@ var selector = new Selectr( '#carbon-switcher-toggle', {
 });
 
 // Attach event listener to the select element.
-selector.on('selectr.select', function(option) {
-	console.log( option );
+selector.on('selectr.select', async function(option) {
 
 	// Change the intensity as required.
 	if ( option.value === 'live' ) {
-		changeGridIntensity( getWithExpiry( 'grid-intensity' ) );
+		console.log( 'expiry value=', getWithExpiry( 'grid-intensity' ) );
+		
+
+		if ( null != getWithExpiry( 'grid-intensity' ) ) {
+			index = getWithExpiry( 'grid-intensity' )
+			console.log( 'Index=', index );
+		} else {
+			const grid = new GridIntensity()
+			await grid.setup()
+			index = await grid.getCarbonIndex()
+		}
+		
+		setWithExpiry( 'grid-intensity', index, 3600000 );
+		location.reload();
+
 	} else {
-		changeGridIntensity( option.value );
+		setWithExpiry( 'grid-intensity', option.value, 3600000 );
+		location.reload();
 	}
 });
