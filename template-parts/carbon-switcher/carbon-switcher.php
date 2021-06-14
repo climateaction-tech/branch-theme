@@ -7,7 +7,12 @@
 
 ?>
 <div class="carbon-switcher">
-	<span>Grid <span>intensity</span> view:</span>
+	<span>
+		<span id="tooltip" class="tooltip">?</span>
+		Grid 
+		<span class="hide-on-mobile">intensity </span>
+		view:
+	</span>
 
 	<select id="carbon-switcher-toggle" class="select-list__linked select-css">
 		<option value="live" selected>live</option>
