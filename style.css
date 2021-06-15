@@ -1454,6 +1454,16 @@ div.show-image {
 
 /* Carbon intensity switcher
 --------------------------------------------- */
+/* Select box before JS kicks in, to avoid unstyled content and for progressive enhancement. */
+select.select-list__linked {
+	border: none;
+	background-color: transparent;
+	text-transform: uppercase;
+	font-family: 'Rubik Bold';
+	text-align: right;
+}
+
+
 .carbon-switcher {
 	flex: 1 0 0;
 	width: 100%;
