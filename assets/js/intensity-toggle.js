@@ -49,7 +49,7 @@ selector.on('selectr.select', async function(option) {
 
 		// Set to immediately expire, which means on reload the core way it fetches intensity is used instead.
 		setWithExpiry( 'grid-intensity', 'unset', 0 );
-		setwithExpiry( 'selected-intensity', 'unset', 0 );
+		setWithExpiry( 'selected-intensity', 'unset', 0 );
 		location.reload();
 
 	} else {
