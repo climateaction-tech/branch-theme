@@ -16,7 +16,26 @@ tippy('#tooltip', {
  * We're using Selectr: https://github.com/Mobius1/Selectr
  * It was the only non JQuery plugin I could find, but sadly its not under active dev anymore.
  */
+
+let intensities = [
+	{ value: 'live', text: 'live' },
+	{ value: 'low', text: 'low' },
+	{ value: 'moderate', text: 'moderate' },
+	{ value: 'high', text: 'high' }
+]
+
+const selectedIntensity = localStorage.getItem( 'selected-intensity' );
+
+intensities.forEach(intensity => {
+	if (!selectedIntensity && 'live' == intensity.value) {
+		intensity['selected'] = true;
+	} else if (selectedIntensity == intensity.value) {
+		intensity['selected'] = true;
+	}
+});
+
 var selector = new Selectr( '#carbon-switcher-toggle', {
+	data: intensities,
 	defaultSelected: false,
 	searchable: false,
 	width: 260
@@ -30,11 +49,13 @@ selector.on('selectr.select', async function(option) {
 
 		// Set to immediately expire, which means on reload the core way it fetches intensity is used instead.
 		setWithExpiry( 'grid-intensity', 'unset', 0 );
+		localStorage.removeItem( 'selected-intensity' );
 		location.reload();
 
 	} else {
 		// Change the intensity to another user selected intensity.
 		setWithExpiry( 'grid-intensity', option.value, 3600000 );
+		localStorage.setItem( 'selected-intensity', option.value );
 		location.reload();
 	}
 });
