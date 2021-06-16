@@ -24,7 +24,7 @@ let intensities = [
 	{ value: 'high', text: 'high' }
 ]
 
-const selectedIntensity = localStorage.getItem( 'selected-intensity' );
+const selectedIntensity = getWithExpiry( 'selected-intensity' );
 
 intensities.forEach(intensity => {
 	if (!selectedIntensity && 'live' == intensity.value) {
@@ -49,13 +49,13 @@ selector.on('selectr.select', async function(option) {
 
 		// Set to immediately expire, which means on reload the core way it fetches intensity is used instead.
 		setWithExpiry( 'grid-intensity', 'unset', 0 );
-		localStorage.removeItem( 'selected-intensity' );
+		setwithExpiry( 'selected-intensity', 'unset', 0 );
 		location.reload();
 
 	} else {
 		// Change the intensity to another user selected intensity.
 		setWithExpiry( 'grid-intensity', option.value, 3600000 );
-		localStorage.setItem( 'selected-intensity', option.value );
+		setWithExpiry( 'selected-intensity', option.value, 3600000 );
 		location.reload();
 	}
 });
