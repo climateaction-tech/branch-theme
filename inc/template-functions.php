@@ -46,11 +46,17 @@ add_action( 'wp_head', 'branch_pingback_header' );
 function branch_output_responsive_image_markup( $image_id, $sizes ) {
 
 	$img_src    = wp_get_attachment_image_url( $image_id, 'large' );
-	$img_srcset = wp_get_attachment_image_srcset( $image_id, 'large' );
+	$img_srcset = wp_get_attachment_image_srcset( $image_id, 'large', wp_get_attachment_metadata( $image_id ) );
 	$img_alt    = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
+
+	$img_meta = wp_get_attachment_metadata( $image_id );
+
+	//var_dump( $img_meta );
+	$img_width = $img_meta['width'];
+	//var_dump( $img_width );
 	?>
 
-	<img loading="lazy" src="<?php echo esc_attr( $img_src ); ?>" srcset="<?php echo esc_attr( $img_srcset ); ?>" sizes="<?php echo esc_html( $sizes ) ?>" alt="<?php echo esc_html( $img_alt ); ?>">
+	<img loading="lazy" width="<?php echo $img_meta['width']; ?>" height="<?php echo $img_meta['height']; ?>" src="<?php echo esc_attr( $img_src ); ?>" srcset="<?php echo esc_attr( $img_srcset ); ?>" sizes="<?php echo esc_html( $sizes ); ?>" alt="<?php echo esc_html( $img_alt ); ?>">
 
 	<?php
 }
