@@ -150,7 +150,7 @@ function branch_scripts() {
 	wp_enqueue_script( 'tippyjs', 'https://unpkg.com/tippy.js@6', array(), '6.3.1', true );
 
 	wp_enqueue_script( 'intensity-toggle', get_template_directory_uri() . '/assets/js/intensity-toggle.js', array( 'selectr' ), filemtime( get_template_directory() . '/assets/js/intensity-toggle.js' ), true );
-	wp_enqueue_script( 'selectr', get_template_directory_uri() . '/assets/js/selectr.min.js', array(), filemtime( get_template_directory() . '/assets/js/selectr.min.js' ), true );
+	wp_enqueue_script( 'selectr', get_template_directory_uri() . '/assets/js/selectr.js', array(), filemtime( get_template_directory() . '/assets/js/selectr.js' ), true );
 }
 add_action( 'wp_enqueue_scripts', 'branch_scripts' );
 
