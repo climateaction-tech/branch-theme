@@ -5,7 +5,7 @@
 
 
 tippy('#tooltip', {
-	content: 'This site changes its design based on the quantity of fossil fuels on the grid, to stay inside a carbon budget at all times. <a href="issues/issue-1/designing-branch-sustainable-interaction-design-principles/">Learn more</a>',
+	content: 'This site changes its design based on the quantity of fossil fuels on the grid to stay inside a carbon budget at all times. <a href="issues/issue-1/designing-branch-sustainable-interaction-design-principles/">Learn more</a>',
 	allowHTML: true,
 	interactive: true,
 });
