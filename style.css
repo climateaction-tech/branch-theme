@@ -914,14 +914,19 @@ body {
 
 div.carbon-alt {
 	position: absolute;
-	width: 80%;
-	left: 10%;
-	top: 50%;
+    padding: 5%;
+	top: 40%;
 	transform: translateY(-50%);
-	font-size: 2em;
 	font-style: italic;
 	line-height: 1.3;
 	z-index: -1;
+}
+@media screen and (min-width: 37.5em) {
+	body:not(.page-id-614) div.carbon-alt {
+		width: 80%;
+		left: 10%;
+		font-size: 2em;
+	}
 }
 
 div.show-image {
