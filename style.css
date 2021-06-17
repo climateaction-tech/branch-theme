@@ -923,7 +923,7 @@ div.carbon-alt {
 	z-index: -1;
 }
 @media screen and (min-width: 37.5em) {
-	body:not(.page-id-614) div.carbon-alt {
+	body:not(.page-id-675) div.carbon-alt {
 		width: 80%;
 		left: 10%;
 		font-size: 2em;
