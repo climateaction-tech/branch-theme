@@ -350,6 +350,13 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Load Yoast compatibility file.
+ */
+if ( defined( 'WPSEO_VERSION' ) ) {
+	require get_template_directory() . '/inc/yoast.php';
+}
+
 // Create custom posts and taxonomies.
 require get_template_directory() . '/inc/custom-posts-and-taxonomies.php';
 
