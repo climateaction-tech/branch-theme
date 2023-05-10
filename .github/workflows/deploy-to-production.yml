@@ -1,8 +1,8 @@
-name: Deploy
+name: Deploy to production
 
 on:
   push:
-    branches: [ main ]
+    branches: [ production ]
 
 jobs:
   build:
