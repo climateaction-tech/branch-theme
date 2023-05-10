@@ -367,3 +367,16 @@ function branch_upload_mimes( $existing_mimes ) {
 	return $existing_mimes;
 }
 add_filter( 'mime_types', 'branch_upload_mimes' );
+
+/**
+ * Set color scheme to sunrise for staging users
+ */
+function set_admin_color_scheme_to_sunrise( $color_scheme ) {
+	$color_scheme = 'sunrise';
+
+	return $color_scheme;
+}
+
+if ( strpos( get_site_url(), 'staging' ) !== false ) {
+	add_filter( 'get_user_option_admin_color', 'set_admin_color_scheme_to_sunrise' );
+}
