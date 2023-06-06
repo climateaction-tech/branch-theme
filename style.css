@@ -942,8 +942,9 @@ div.show-image {
 	z-index: -1;
 }
 
+/* Hide all images by default. How they appear depends on carbon intensity. */
 .entry-content img {
-	display: none;
+	display: none !important;
 }
 
 .entry-content a.more-link {
