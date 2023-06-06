@@ -192,7 +192,7 @@ function branch_grid_intensity() {
 		function changeGridIntensity( intensity ) {
 			let logo
 			let entryContent = document.querySelector('.entry-content')
-			let figures = document.querySelectorAll('.entry-content .wp-block-image figure, .entry-content figure.wp-block-image');
+			let figures = document.querySelectorAll('.entry-content .wp-block-image figure, .entry-content figure.wp-block-image, .entry-content figure.wp-block-gallery figure');
 
 			document.querySelector('body').classList.add(`${intensity}-grid-intensity`);
 			document.querySelector('.intensity').textContent = intensity;
