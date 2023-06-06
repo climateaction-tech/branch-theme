@@ -231,7 +231,7 @@ function branch_grid_intensity() {
 						}
 						figure.addEventListener( "click", showImage )
 						function showImage() {
-							image.style.display = 'initial';
+							image.style.setProperty( "display", "initial", "important" );
 							this.querySelector('span').remove();
 						}
 						const altDiv = document.createElement("div")
@@ -257,7 +257,7 @@ function branch_grid_intensity() {
 					if ( image ) {
 						image.src = image.src.replace(re, "$1/$2/low-res/");
 						image.srcset = image.srcset.replaceAll(re, "$1/$2/low-res/");
-						image.style.display = 'initial';
+						image.style.setProperty( "display", "initial", "important" );
 					}
 					let pictureSource = figure.querySelector('picture source');
 					if ( pictureSource ) {
@@ -272,7 +272,7 @@ function branch_grid_intensity() {
 				figures.forEach( function(figure) {
 					let image = figure.querySelector('img');
 					if ( image ) {
-						image.style.display = 'initial';
+						image.style.setProperty( "display", "initial", "important" );
 					}
 				})
 			}
