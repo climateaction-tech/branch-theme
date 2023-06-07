@@ -1504,7 +1504,7 @@ select.select-list__linked {
 	font-family: 'Rubik Bold';
 	text-align: right;
 	display: flex;
-	align-items: center;
+	align-items: end;
 	justify-content: flex-end;
 	flex-direction: column;
 	line-height: 1.2;
@@ -1532,6 +1532,12 @@ select.select-list__linked {
 	.carbon-switcher span.hide-on-mobile {
 		display: none;
 	}
+}
+
+/* Alter selectr's default width of 100% as it isn't necessary and causes a
+ * conflict with the Tippy tooltip. */
+.carbon-switcher .selectr-container {
+	width: auto;
 }
 
 
