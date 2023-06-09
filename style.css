@@ -942,8 +942,9 @@ div.show-image {
 	z-index: -1;
 }
 
-/* Hide all images by default. How they appear depends on carbon intensity. */
-.entry-content img {
+/* Hide all images by default. How they appear depends on carbon intensity.
+ * (Except for specifically whitelisted images and placeholders.) */
+.entry-content figure:not(.no-carbon) img:not(.branch-placeholder-image) {
 	display: none !important;
 }
 
