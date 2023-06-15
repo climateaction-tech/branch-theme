@@ -189,37 +189,71 @@ function branch_grid_intensity() {
 			return item.value
 		}
 
+		/**
+		 * Responds to grid intensity changes.
+		 *
+		 * @todo Refactor this horrible code!
+		 *
+		 * @param {string} intensity - Current grid intensity: 'high', 'moderate' or 'low'.
+		 * @return {undefined} - Returns nothing.
+		 */
 		function changeGridIntensity( intensity ) {
-			let logo
-			let entryContent = document.querySelector('.entry-content')
-			let figures = document.querySelectorAll('.entry-content .wp-block-image figure, .entry-content figure.wp-block-image');
+			const entryContent = document.querySelector('.entry-content'), figures = document.querySelectorAll('.entry-content .wp-block-image figure:not(.no-carbon), .entry-content figure.wp-block-image:not(.no-carbon), .entry-content figure.wp-block-gallery figure:not(.no-carbon)');
+			let logo;
 
 			document.querySelector('body').classList.add(`${intensity}-grid-intensity`);
 			document.querySelector('.intensity').textContent = intensity;
 
 			if ( 'high' == intensity ) {
 				logo = 'orange'
+
 				document.documentElement.style.setProperty('--bg-colour', '#FFBF43');
 				document.documentElement.style.setProperty('--hl-colour', '#472E00');
 				document.documentElement.style.setProperty('--body-colour', '#1E1E1E');
+
 				figures.forEach( function(figure) {
-					let image = figure.querySelector('img');
+
+					const image = figure.querySelector('img');
+
 					if ( image ) {
-						let figureWidth, figureHeight
-						if ( image.width < entryContent.offsetWidth ) {
-							figureWidth = image.width
-							figureHeight = image.height
+
+						const isInGallery = figure.closest('.wp-block-gallery'), imgSpan = document.createElement("span");
+
+						if ( null !== isInGallery ) {
+
+							const imgPlaceholder = document.createElement("img");
+
+							imgPlaceholder.className = 'branch-placeholder-image';
+							imgPlaceholder.src = '/wp-content/themes/branch-theme/images/solid-placeholder.php?bg=ffdd9c&w=' + image.width + '&h=' + image.height;
+							imgPlaceholder.width = image.width;
+							imgPlaceholder.height = image.height;
+
+							figure.appendChild(imgPlaceholder);
+							figure.style.position = 'relative';
+
+							imgSpan.style.position = 'absolute';
+							imgSpan.style.width = '100%';
+							imgSpan.style.height = '100%';
+
 						} else {
-							figureWidth = entryContent.offsetWidth
-							figureHeight = (entryContent.offsetWidth / image.width) * image.height
+
+							let figureWidth, figureHeight
+
+							if ( image.width < entryContent.offsetWidth ) {
+								figureWidth = image.width
+								figureHeight = image.height
+							} else {
+								figureWidth = entryContent.offsetWidth
+								figureHeight = (entryContent.offsetWidth / image.width) * image.height
+							}
+
+							imgSpan.style.width = figureWidth + 'px';
+							imgSpan.style.height = figureHeight + 'px';
 						}
-						//figure.style.width = figureWidth + 'px'
-						//figure.style.height = figureHeight + 'px'
-						const imgSpan = document.createElement("span");
+
 						imgSpan.className = image.classList;
-						imgSpan.style.width = figureWidth + 'px';
-						imgSpan.style.height = figureHeight + 'px';
 						imgSpan.style.display = 'inline-block';
+
 						if ( figure.querySelector('a img') ) {
 							imageLink = figure.querySelector('a');
 							figure.insertBefore(imgSpan, imageLink);
@@ -229,16 +263,21 @@ function branch_grid_intensity() {
 						} else {
 							figure.insertBefore(imgSpan, image);
 						}
+
 						figure.addEventListener( "click", showImage )
+
 						function showImage() {
-							image.style.display = 'initial';
+							image.style.setProperty( "display", "initial", "important" );
 							this.querySelector('span').remove();
+							this.querySelector('.branch-placeholder-image').remove();
 						}
+
 						const altDiv = document.createElement("div")
 						const altContent = document.createTextNode(image.alt)
 						altDiv.appendChild(altContent);
 						altDiv.className = "carbon-alt";
 						imgSpan.appendChild(altDiv);
+
 						const showDiv = document.createElement("div");
 						const showContent = document.createTextNode("Show Image");
 						showDiv.appendChild(showContent);
@@ -257,7 +296,7 @@ function branch_grid_intensity() {
 					if ( image ) {
 						image.src = image.src.replace(re, "$1/$2/low-res/");
 						image.srcset = image.srcset.replaceAll(re, "$1/$2/low-res/");
-						image.style.display = 'initial';
+						image.style.setProperty( "display", "initial", "important" );
 					}
 					let pictureSource = figure.querySelector('picture source');
 					if ( pictureSource ) {
@@ -272,7 +311,7 @@ function branch_grid_intensity() {
 				figures.forEach( function(figure) {
 					let image = figure.querySelector('img');
 					if ( image ) {
-						image.style.display = 'initial';
+						image.style.setProperty( "display", "initial", "important" );
 					}
 				})
 			}

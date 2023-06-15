@@ -900,7 +900,7 @@ body {
 	text-transform: uppercase;
 }
 
-.entry-content .wp-block-image figure span, .entry-content figure.wp-block-image span {
+.entry-content .wp-block-image figure span, .entry-content figure.wp-block-image span, .entry-content li.blocks-gallery-item span {
 	position: relative;
 	background-color: #FFDD9C;
 	z-index: 0;
@@ -936,14 +936,17 @@ div.show-image {
 	transform: translateX(-50%);
 	bottom: 15%;
 	font-family: "Rubik Bold";
+	text-align: center;
 	text-transform: uppercase;
 	text-decoration: underline;
 	cursor: pointer;
 	z-index: -1;
 }
 
-.entry-content img {
-	display: none;
+/* Hide all images by default. How they appear depends on carbon intensity.
+ * (Except for specifically whitelisted images and placeholders.) */
+.entry-content figure:not(.no-carbon) img:not(.branch-placeholder-image) {
+	display: none !important;
 }
 
 .entry-content a.more-link {
