@@ -403,6 +403,7 @@ require get_template_directory() . '/inc/contents-sidebar.php';
  */
 function branch_upload_mimes( $existing_mimes ) {
 	$existing_mimes['webp'] = 'image/webp';
+	$existing_mimes['svg'] = 'image/svg+xml';
 	return $existing_mimes;
 }
 add_filter( 'mime_types', 'branch_upload_mimes' );
