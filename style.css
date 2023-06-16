@@ -914,12 +914,13 @@ body {
 }
 
 div.carbon-alt {
+	font-style: italic;
+	line-height: 1.3;
 	position: absolute;
     padding: 5%;
 	top: 40%;
 	transform: translateY(-50%);
-	font-style: italic;
-	line-height: 1.3;
+	width: 100%;
 	z-index: -1;
 }
 @media screen and (min-width: 37.5em) {
@@ -941,6 +942,11 @@ div.show-image {
 	text-decoration: underline;
 	cursor: pointer;
 	z-index: -1;
+}
+@media screen and (max-width: 782px) {
+	div.show-image {
+		font-size: .7rem;
+	}
 }
 
 /* Hide all images by default. How they appear depends on carbon intensity.
