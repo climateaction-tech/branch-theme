@@ -1029,7 +1029,7 @@ div.show-image {
 }
 
 .hentry {
-	border-bottom: .1em solid #d8d8d8;
+	border-bottom: 1px solid gray;
 	padding-bottom: 5em;
 }
 
@@ -1126,9 +1126,13 @@ div.show-image {
 	}
 }
 
-.site-footer a {
+.site-footer a, .site-footer a span {
 	color: #212121;
 	text-decoration: none;
+}
+
+.site-footer .wp-block-navigation-item span {
+	font-family: 'Rubik Bold';
 }
 
 .footer-nav {
@@ -1139,6 +1143,11 @@ div.show-image {
 		margin-top: 0;
 		display: flex;
 		align-items: center;
+	}
+}
+@media screen and (max-width: 782px) {
+	.site-footer .wp-block-navigation__container {
+		justify-content: center;
 	}
 }
 
