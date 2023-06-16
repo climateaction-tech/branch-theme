@@ -951,7 +951,7 @@ div.show-image {
 
 /* Hide all images by default. How they appear depends on carbon intensity.
  * (Except for specifically whitelisted images and placeholders.) */
-.entry-content figure:not(.no-carbon) img:not(.branch-placeholder-image) {
+.entry-content figure.wp-block-image:not(.no-carbon) img:not(.branch-placeholder-image) {
 	display: none !important;
 }
 
