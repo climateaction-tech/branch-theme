@@ -419,3 +419,16 @@ function set_admin_color_scheme_to_sunrise( $color_scheme ) {
 if ( strpos( get_site_url(), 'staging' ) !== false ) {
 	add_filter( 'get_user_option_admin_color', 'set_admin_color_scheme_to_sunrise' );
 }
+
+/**
+ * Exclude 'Footer' page from admin.
+ */
+function exclude_footer_page_from_admin( $query ) {
+	global $pagenow, $post_type;
+
+	if ( is_admin() && $pagenow === 'edit.php' && $post_type === 'page' ) {
+		$footer_page = get_page_by_title( 'Footer' );
+		$query->query_vars['post__not_in'] = array( $footer_page->ID );
+	}
+}
+add_filter( 'parse_query', 'exclude_footer_page_from_admin' );
