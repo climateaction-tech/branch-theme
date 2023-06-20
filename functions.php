@@ -432,3 +432,12 @@ function exclude_footer_page_from_admin( $query ) {
 	}
 }
 add_filter( 'parse_query', 'exclude_footer_page_from_admin' );
+
+/**
+ * Always lazyload images to ensure high-resolution images aren't downloaded
+ * during periods of moderate or high carbon intensity.
+ */
+function always_lazyload_images() {
+	return 0;
+}
+add_filter( 'wp_omit_loading_attr_threshold', 'always_lazyload_images', 10, 0 );
