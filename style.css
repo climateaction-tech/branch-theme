@@ -927,6 +927,9 @@ div.carbon-alt {
 	body:not(.page-id-675) div.carbon-alt {
 		width: 80%;
 		left: 10%;
+	}
+
+	body:not(.page-id-675) div.carbon-alt:not(figure.wp-block-gallery *) {
 		font-size: 2em;
 	}
 }
