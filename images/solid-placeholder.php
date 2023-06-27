@@ -5,15 +5,28 @@
  * Accepts background, width and height values and outputs a plain PNG image of
  * the specified background color.
  */
+if ( file_exists( $_SERVER['DOCUMENT_ROOT'] . '/wp-load.php' ) ) {
+	require_once( $_SERVER['DOCUMENT_ROOT'] . '/wp-load.php' );
+}
+
 $settings = [
-	"background" => isset($_GET['bg']) ? $_GET['bg'] : 'ffdd9c',
-	"width" => isset($_GET['w']) ? $_GET['w'] : 400,
-	"height" => isset($_GET['h']) ? $_GET['h'] : 300,
+	"background" => isset($_GET['bg']) ? sanitize_hex_color_no_hash( $_GET['bg'] ) : 'ffdd9c',
+	"width" => isset($_GET['w']) ? filter_var( $_GET['w'], FILTER_SANITIZE_NUMBER_INT ) : 400,
+	"height" => isset($_GET['h']) ? filter_var( $_GET['h'], FILTER_SANITIZE_NUMBER_INT ) : 300,
 ];
 
 $background = explode(",",hex2rgb($settings['background']));
-$width = $settings['width'];
-$height = $settings['height'];
+
+$options = [
+	'options' => [
+		'default' => 100,
+		'min_range' => 1,
+		'max_range' => 2000
+	]
+];
+
+$width = filter_var( $settings['width'], FILTER_VALIDATE_INT, $options );
+$height = filter_var( $settings['height'], FILTER_VALIDATE_INT, $options );
 
 $image = @imagecreate($width, $height) or die("Cannot Initialize new GD image stream");
 
