@@ -914,18 +914,22 @@ body {
 }
 
 div.carbon-alt {
+	font-style: italic;
+	line-height: 1.3;
 	position: absolute;
     padding: 5%;
 	top: 40%;
 	transform: translateY(-50%);
-	font-style: italic;
-	line-height: 1.3;
+	width: 100%;
 	z-index: -1;
 }
 @media screen and (min-width: 37.5em) {
 	body:not(.page-id-675) div.carbon-alt {
 		width: 80%;
 		left: 10%;
+	}
+
+	body:not(.page-id-675) div.carbon-alt:not(figure.wp-block-gallery *) {
 		font-size: 2em;
 	}
 }
@@ -942,10 +946,16 @@ div.show-image {
 	cursor: pointer;
 	z-index: -1;
 }
+@media screen and (max-width: 782px) {
+	div.show-image {
+		font-size: .7rem;
+	}
+}
 
 /* Hide all images by default. How they appear depends on carbon intensity.
  * (Except for specifically whitelisted images and placeholders.) */
-.entry-content figure:not(.no-carbon) img:not(.branch-placeholder-image) {
+.entry-content figure.wp-block-image:not(.no-carbon) img:not(.branch-placeholder-image),
+.entry-content .wp-block-image figure:not(.no-carbon) img:not(.branch-placeholder-image) {
 	display: none !important;
 }
 
