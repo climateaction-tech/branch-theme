@@ -330,6 +330,10 @@ function branch_grid_intensity() {
 				setWithExpiry( 'grid-intensity', index, 3600000 )
 			}
 
+			if ( index === "very high" ) {
+				index = "high";
+			}
+
 			changeGridIntensity( index );
 
 			const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
