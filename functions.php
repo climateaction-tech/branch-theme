@@ -332,6 +332,8 @@ function branch_grid_intensity() {
 
 			if ( index === "very high" ) {
 				index = "high";
+			} else if ( index === "very low" ) {
+				index = "low";
 			}
 
 			changeGridIntensity( index );
