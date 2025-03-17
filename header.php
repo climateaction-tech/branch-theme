@@ -81,10 +81,16 @@
 			<?php
 		endif;
 		?>
+
+		<?php get_template_part( 'template-parts/carbon-switcher/carbon-switcher' ); ?>
 	</div>
 
 	<div class="blackout"></div>
 
 	<div class="table-of-contents">
 		<?php display_toc_contents(); ?>
+	</div>
+
+	<div class="carbon-intensity">
+		<span class="energy"><?php echo file_get_contents( get_template_directory() . '/images/energy.svg' ); ?></span> <span class="intensity">Unknown</span> grid intensity
 	</div>
