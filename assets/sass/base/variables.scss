@@ -1,0 +1,19 @@
+/* Variables. 
+    Constants we want to use throughout theme.
+    Many are also being set in theme.json.
+--------------------------------------------- */
+
+$safe-spacing: 1rem;
+$clamp-spacing: clamp(0.5rem, 5vw, 3rem);
+$max-reading-width: 35rem;
+
+
+/*--------------------------------------------------------------
+# Intensity colour scheme variables.
+--------------------------------------------------------------*/
+:root {
+	--logo-colour: #B7410E;
+	--bg-colour: #E8E5DC;
+	--hl-colour: --var(--wp--preset--color--body-colour);
+	--body-colour: --var(--wp--preset--color--body-colour);
+}

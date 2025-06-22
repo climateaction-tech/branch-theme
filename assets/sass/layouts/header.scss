@@ -1,0 +1,16 @@
+/* Layout. 
+    Styling for the header.
+--------------------------------------------- */
+
+.secondary-nav {
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid gray;
+	letter-spacing: 0.07em;
+
+    img {
+        display: inline-block;
+    }
+}

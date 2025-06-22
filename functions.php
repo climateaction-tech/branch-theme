@@ -189,9 +189,9 @@ function branch_grid_intensity() {
 			if ( 'high' == intensity ) {
 				logo = 'orange'
 
-				document.documentElement.style.setProperty('--bg-colour', '#FFBF43');
-				document.documentElement.style.setProperty('--hl-colour', '#472E00');
-				document.documentElement.style.setProperty('--body-colour', '#1E1E1E');
+				document.documentElement.style.setProperty('--bg-colour', '#F4E0DA');
+				// document.documentElement.style.setProperty('--hl-colour', '#472E00');
+				// document.documentElement.style.setProperty('--body-colour', '#1E1E1E');
 
 				figures.forEach( function(figure) {
 
@@ -269,9 +269,9 @@ function branch_grid_intensity() {
 				});
 			} else if ( 'moderate' == intensity ) {
 				logo = 'blue'
-				document.documentElement.style.setProperty('--bg-colour', '#87FEFF');
-				document.documentElement.style.setProperty('--hl-colour', '#00535C');
-				document.documentElement.style.setProperty('--body-colour', '#1E1E1E');
+				document.documentElement.style.setProperty('--bg-colour', '#FAF1E7');
+				// document.documentElement.style.setProperty('--hl-colour', '#00535C');
+				// document.documentElement.style.setProperty('--body-colour', '#1E1E1E');
 				let re = /(\d{4})\/(\d{2})\//gi;
 				figures.forEach( function(figure) {
 					let image = figure.querySelector('img');
@@ -287,9 +287,9 @@ function branch_grid_intensity() {
 				})
 			} else {
 				logo = 'green'
-				document.documentElement.style.setProperty('--bg-colour', '#C8FF63');
-				document.documentElement.style.setProperty('--hl-colour', '#005C20');
-				document.documentElement.style.setProperty('--body-colour', '#1E1E1E');
+				document.documentElement.style.setProperty('--bg-colour', '#E6F1E4');
+				//document.documentElement.style.setProperty('--hl-colour', '#005C20');
+				//document.documentElement.style.setProperty('--body-colour', '#1E1E1E');
 				figures.forEach( function(figure) {
 					let image = figure.querySelector('img');
 					if ( image ) {

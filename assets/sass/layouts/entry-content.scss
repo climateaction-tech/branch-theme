@@ -1,0 +1,33 @@
+/* Entry Content 
+    Generic styles for blog or page content
+    aka the_post.
+--------------------------------------------- */
+
+.entry-header {
+    max-width: $max-reading-width;
+    margin-left: 0;
+}
+
+.entry-meta {
+	font-style: italic;
+}
+
+.entry-content {
+
+    // Elements we wish to set to reading width are here.
+    p, ul, ol,
+    blockquote,
+    h1, h2, h3, h4, h5, h6 {
+        max-width: $max-reading-width;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    // Other variations are defined for those elements below..
+    ul, ol {
+        margin: 0 auto 1.5em;
+        padding: 0 3em;
+    }
+}
+

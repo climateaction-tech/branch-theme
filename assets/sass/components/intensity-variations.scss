@@ -1,0 +1,39 @@
+/* Intensity colour schemes. 
+    These override defaults set earlier on.
+--------------------------------------------- */
+
+body {
+	background-color: var(--bg-colour);
+}
+
+.site-main {
+	color: var(--body-colour);
+}
+
+.entry-content {
+	.wp-block-image figure span, 
+	figure.wp-block-image span, 
+	li.blocks-gallery-item span {
+		position: relative;
+		background-color: var(--wp--preset--color--high-bg-dark);
+		z-index: 0;
+		cursor: pointer;
+	}
+}
+
+div.show-image {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 15%;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: underline;
+	cursor: pointer;
+	z-index: -1;
+}
+@media screen and (max-width: 782px) {
+	div.show-image {
+		font-size: .7rem;
+	}
+}

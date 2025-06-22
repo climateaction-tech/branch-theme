@@ -1,0 +1,30 @@
+/* Layout. 
+    Generic layouts applicable to most pages.
+--------------------------------------------- */
+
+// The key components of each page,
+// let's keep them unified.
+.site-header,
+.secondary-nav,
+.site-main,
+.site-footer {
+    padding-left: $safe-spacing; // fallback.
+    padding-right: $safe-spacing; // fallback.
+
+    padding-left: $clamp-spacing;
+    padding-right: $clamp-spacing;
+}
+
+
+.site-main {
+	//max-width: 50rem;
+	margin: 0 auto;
+}
+
+.page-content,
+.entry-content,
+.entry-summary,
+article.hentry {
+    margin-top: $safe-spacing; // fallback.
+    margin-top: $clamp-spacing;
+}
