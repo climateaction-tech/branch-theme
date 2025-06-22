@@ -1,0 +1,71 @@
+{
+  "name": "Branch-GAW",
+  "version": "0.0.1",
+  "description": "Theme that works in sync with Green Web Foundation's Grid Aware Websites toolkit",
+  "main": "index.js",
+  "scripts": {
+    "bs": "browser-sync start --config src/build/browser-sync.config.js",
+    "css": "npm-run-all css-compile css-minify",
+    "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css --quiet assets/sass/theme.scss:assets/css/theme.css",
+    "css-minify": "cleancss -O1 --format breakWith=lf --with-rebase --source-map --source-map-inline-sources --output assets/css/ --batch --batch-suffix \".min\" \"assets/css/*.css\" \"!assets/css/*.min.css\" \"!assets/css/*rtl*.css\"",
+    "js": "npm-run-all js-minify",
+    "js-minify": "terser assets/js/theme.js --output assets/js/theme.min.js",
+    "watch": "npm-run-all --parallel watch-run-*",
+    "watch-bs": "npm-run-all --parallel bs watch-run-*",
+    "watch-run-css": "nodemon --watch assets/sass/ --ext scss --exec \"npm-run-all css\"",
+    "watch-run-js": "nodemon --watch assets/js/ --ext js --exec \"npm-run-all js\""
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "assets/js/*.min.js"
+    ]
+  },
+  "babel": {
+    "extends": "./src/build/babel.config.js"
+  },
+  "engines": {
+    "node": ">=18",
+    "npm": ">=8.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/climateaction-tech/branch-theme"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "framework"
+  ],
+  "author": "Hannah Smith (https://github.com/hanopcan)",
+  "license": "GPL-3.0",
+  "licenseUrl": "https://www.gnu.org/licenses/gpl-3.0.html",
+  "bugs": {
+    "url": "https://github.com/climateaction-tech/branch-theme/issues"
+  },
+  "homepage": "https://branch.climateaction.tech/",
+  "devDependencies": {
+    "@babel/core": "^7.24.3",
+    "@babel/preset-env": "^7.24.3",
+    "@popperjs/core": "^2.11.8",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-multi-entry": "^6.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-replace": "^5.0.5",
+    "autoprefixer": "^10.4.19",
+    "browser-sync": "^3.0.2",
+    "browserslist": "^4.22.1",
+    "caniuse-lite": "^1.0.30001547",
+    "clean-css-cli": "^5.6.3",
+    "font-awesome": "^4.7.0",
+    "nodemon": "^3.1.0",
+    "npm-run-all": "^4.1.5",
+    "popper.js": "^1.16.1",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
+    "postcss-understrap-palette-generator": "git+https://github.com/understrap/postcss-understrap-palette-generator.git",
+    "rollup": "^4.13.0",
+    "sass": "^1.72.0",
+    "terser": "^5.29.2"
+  }
+}

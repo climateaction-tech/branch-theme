@@ -1,0 +1,31 @@
+// Mixins
+// @import 'utils/mixins/rem';
+// @import 'utils/mixins/clearfix';
+// @import 'utils/mixins/accessible-hide';
+
+
+// Base set-up
+@import "base/styles";
+// @import "base/theme_variables"; // ----- My variables, colours etc
+// @import "base/generic-classes";
+
+// @import "base/fonts";
+// @import "base/elements";
+
+// @import 'base/breakpoints/functions';
+// @import 'base/breakpoints/breakpoint-variables';
+// @import 'base/breakpoints/mixins/breakpoints';
+
+//@import "base/element-flow";
+
+
+// Vendor packages
+//@import "vendor/flexslider/flexslider";
+
+
+// Custom components
+//@import "components/navigation";
+
+
+// Custom layouts
+//@import "layouts/header"; 
