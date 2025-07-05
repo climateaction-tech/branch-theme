@@ -3,12 +3,17 @@
 --------------------------------------------- */
 
 .site-footer {
-	margin: 2rem auto;
+	padding-top: 2rem;
 
     a, a span {
 	    color: var(--wp--preset--color--body-colour);
 	    text-decoration: none;
     }
+
+	> div:last-of-type {
+		margin-bottom: 0;
+		padding: 2rem;
+	}
 }
 
 .footer-nav {

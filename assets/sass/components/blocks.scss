@@ -1,0 +1,28 @@
+/* Wp-blocks
+    Override default WP block styling.
+--------------------------------------------- */
+
+.wp-block-image {
+	text-align: center;
+	max-width: $max-image-width;
+	margin-left: auto;
+	margin-right: auto;
+
+	.wp-element-caption {
+		font-size: var(--wp--preset--font-size--small);
+		opacity: $text-opacity;
+	}
+}
+
+.wp-block-gallery .blocks-gallery-grid {
+	margin-bottom: 0;
+	padding: 0;
+}
+
+.wp-block-embed {
+	text-align: center;
+}
+
+.wp-block-pullquote {
+	padding-bottom: 1em; 
+}

@@ -23,7 +23,7 @@
 
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> data-gaw-mode="default">
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'branch' ); ?></a>
@@ -63,8 +63,8 @@
 		</nav><!-- #site-navigation -->
 
 		<div class="site-credit">
-			<a class="site-credit__link" href="https://climateaction.tech/">
-				<img class="site-credit__image" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/Climate_Action_Tech_Logo.svg" />
+			<a class="site-credit__link" href="https://greenweb.org/">
+				<img alt="Green Web Foundation logo" class="site-credit__image" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/GWF-logo-greyscale.svg" />
 			</a>
 		</div>
 	</header><!-- #masthead -->
@@ -81,16 +81,10 @@
 			<?php
 		endif;
 		?>
-
-		<?php get_template_part( 'template-parts/carbon-switcher/carbon-switcher' ); ?>
 	</div>
 
 	<div class="blackout"></div>
 
 	<div class="table-of-contents">
 		<?php display_toc_contents(); ?>
-	</div>
-
-	<div class="carbon-intensity">
-		<span class="energy"><?php echo file_get_contents( get_template_directory() . '/images/energy.svg' ); ?></span> <span class="intensity">Unknown</span> grid intensity
 	</div>

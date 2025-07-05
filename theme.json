@@ -15,34 +15,9 @@
 			"coreGradients": false,
 			"palette": [
 				{
-					"slug": "body-colour",
+					"slug": "text-colour",
 					"color": "#2D312A",
 					"name": "Branch black"
-				},
-                {
-					"slug": "high-bg",
-					"color": "#F4E0DA",
-					"name": "High intensity bg"
-				},
-                {
-					"slug": "high-bg-mid",
-					"color": "#F5D5CB",
-					"name": "High intensity bg mid tone"
-				},
-                {
-					"slug": "high-bg-dark",
-					"color": "#EBCDC3",
-					"name": "High intensity bg dark tone"
-				},                
-                {
-					"slug": "med-bg",
-					"color": "#FAF1E7",
-					"name": "Med intensity bg"
-				},
-                {
-					"slug": "low-bg",
-					"color": "#E6F1E4",
-					"name": "Low intensity bg"
 				}
 			]
 		},

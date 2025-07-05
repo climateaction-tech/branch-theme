@@ -3,11 +3,12 @@
 --------------------------------------------- */
 
 // The key components of each page,
-// let's keep them unified.
+// let's keep these page margins unified.
 .site-header,
 .secondary-nav,
+.table-of-contents,
 .site-main,
-.site-footer {
+.site-footer > div {
     padding-left: $safe-spacing; // fallback.
     padding-right: $safe-spacing; // fallback.
 
@@ -19,6 +20,7 @@
 .site-main {
 	//max-width: 50rem;
 	margin: 0 auto;
+    color: var(--text-colour);
 }
 
 .page-content,

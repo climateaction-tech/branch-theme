@@ -1,44 +1,27 @@
-// Mixins
-// @import 'utils/mixins/rem';
-// @import 'utils/mixins/clearfix';
-// @import 'utils/mixins/accessible-hide';
-
-
 // Base set-up
-@import "base/styles"; // aiming to get rid of this file, it's the old css.
-
 @import "base/modern-normalize.scss";
 @import "base/element-reset";
 
-@import "base/typography";
-@import "base/variables"; 
-@import "base/elements";
-
 @import "base/breakpoints";
+
+@import "base/colours";
+@import "base/variables"; 
+@import "base/typography";
+@import "base/elements";
 
 @import "base/layout";
 
 
-// @import "base/generic-classes";
-
-
-// @import 'base/breakpoints/functions';
-// @import 'base/breakpoints/breakpoint-variables';
-// @import 'base/breakpoints/mixins/breakpoints';
-
-//@import "base/element-flow";
-
-
-// Vendor packages
-//@import "vendor/flexslider/flexslider";
-
-
 // Custom components
-@import "components/intensity-variations";
+@import "components/forms";
+@import "components/blocks";
 
 
 // Custom layouts
-//@import "layouts/header"; 
 @import "layouts/header";
 @import "layouts/entry-content"; 
 @import "layouts/footer";
+
+
+// Customise 3rd party packages
+@import "vendor/gaw-variations";

@@ -2,15 +2,237 @@
     Styling for the header.
 --------------------------------------------- */
 
+/* 
+   1. Header layout.
+   2. Main nav.
+   3. Secondary nav (contents bar).
+*/
+
+
+/* 1. Header layout.
+--------------------------------------------- */
+.site-header {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	padding-top: 0.5rem;
+}
+
+.logo, .site-branding, .site-credit {
+	height: 2.6rem;
+}
+
+.logo {
+	display: none;
+
+	@include respond-to('xs') {
+		display: flex;
+		padding-right: 0.5rem;
+	}
+
+	img {
+		min-width: 40px;
+	}
+}
+
+.site-branding {
+	padding-right: 2rem;
+
+	@include respond-to('medium') {
+		padding-right: 3rem;
+	}
+	@include respond-to('large') {
+		padding-right: 5rem;
+	}
+}
+
+.site-title {
+	font-size: 2rem;
+	font-weight: bold;
+	margin: 0;
+	text-transform: lowercase;
+	height: 100%;
+	display: flex;
+	align-items: center;
+
+	a {
+		color: var(--text-colour);
+		text-decoration: none;
+	}
+}
+
+.site-description {
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
+
+.site-credit {
+	display: none;
+
+	@include respond-to('medium') {
+		display: block;
+		flex: 1 0 0;
+	}
+}
+
+.site-credit__link {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	height: 100%;
+}
+.site-credit__image {
+	max-width: 150px;
+}
+
+/* 2. Main nav.
+--------------------------------------------- */
+.main-navigation {
+	display: block;
+	align-self: center;
+	height: auto;
+
+	.menu-main-navigation-container {
+		height: 100%;
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		flex-wrap: wrap;
+		height: 100%;
+	}
+
+	li {
+		position: relative;
+		text-transform: uppercase;
+		padding: 0.5rem 1rem;
+
+		&:first-of-type {
+			padding-left: 0;
+		}
+
+		&:last-of-type {
+			padding-right: 0;
+		}
+
+		@include respond-to( 'medium' ) {
+			padding: 1.5rem;
+
+			&:last-of-type {
+				padding-right: 1.5rem;
+			}
+		}
+
+		@include respond-to( 'large' ) {
+			padding: 2.5rem;
+
+			&:last-of-type {
+				padding-right: 2.5rem;
+			}
+		}
+
+		a {
+			color: var(--text-colour);
+			margin-top: 4px;
+			display: block;
+			text-decoration: none;
+		}
+	}
+}
+
+
+
+/* 3. Secondary nav (contents bar).
+--------------------------------------------- */
+
 .secondary-nav {
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
 	display: flex;
 	align-items: center;
-	border-bottom: 1px solid gray;
 	letter-spacing: 0.07em;
 
     img {
         display: inline-block;
     }
 }
+
+body {
+	position: relative; // This is to make the absolute work in blackout below work.
+}
+
+.blackout {
+	background-color: var(--text-colour);
+	left: -100%;
+	opacity: 0%;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transition: opacity 0.5s;
+	z-index: 1;
+}
+.blackout-active {
+	display: block;
+	left: 0;
+	opacity: 25%;
+}
+
+.blackout-fading {
+	opacity: 0%;
+}
+
+.nav-contents {
+	p {
+		margin: 0;
+	}
+	p, a.more-link {
+		text-transform: uppercase;
+	}
+	// Contents menu icon.
+	p img {
+		margin-right: .5em;
+		margin-bottom: -.1em;
+	}
+	a {
+		color: var(--text-colour);
+		text-decoration: none;
+	}
+}
+
+.table-of-contents {
+	position: absolute;
+	transform: translateX(-100%);
+	transition: transform 0.5s;
+	z-index: 2;
+	max-width: $max-reading-width;
+    margin-left: auto;
+    margin-right: auto;
+	padding-top: 1.5rem;
+	line-height: 1.7;
+
+	&-active {
+		transform: translateX(0);
+	}
+
+	h2 {
+		font-size: 1.3rem;
+		font-weight: bold;
+		margin-bottom: 1rem;
+	}
+
+	p {
+		font-size: 0.9rem;
+		margin-bottom: 1.5rem;
+	}
+
+	a {
+		text-decoration: none;
+	}
+}
+
