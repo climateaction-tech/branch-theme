@@ -12,10 +12,13 @@
 /* 1. Header layout.
 --------------------------------------------- */
 .site-header {
+	padding-top: 0.5rem;
+}
+
+.branch-branding {
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
-	padding-top: 0.5rem;
 }
 
 .logo, .site-branding, .site-credit {
