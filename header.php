@@ -15,7 +15,7 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/svg+xml" href="<?php echo esc_url( get_template_directory_uri() ); ?>/images/branch_red-01.svg">
+	<link rel="icon" type="image/svg+xml" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/branch_red-01.svg">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<link rel="preload" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
@@ -34,7 +34,7 @@
 
 		<div class="branch-branding">
 			<div class="logo">
-				<img src="<?php echo esc_url( get_template_directory_uri() );?>/images/branch_red-01.svg" />
+				<img src="<?php echo esc_url( get_template_directory_uri() );?>/assets/images/branch_black_icon.svg" />
 			</div>
 
 			<div class="site-branding">
@@ -69,7 +69,7 @@
 
 			<div class="site-credit">
 				<a class="site-credit__link" href="https://greenweb.org/">
-					<img alt="Green Web Foundation logo" class="site-credit__image" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/GWF-logo-greyscale.svg" />
+					<img alt="Green Web Foundation logo" class="site-credit__image" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/GWF-logo-greyscale.svg" />
 				</a>
 			</div>
 	</header><!-- #masthead -->
@@ -81,7 +81,7 @@
 		if ( 'post' === get_post_type() ) :
 			?>
 			<div id="nav-contents" class="nav-contents">
-				<p><a class="toc-link" href="#"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/Contents_icon.svg" /> Contents</a></p>
+				<p><a class="toc-link" href="#"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/Contents_icon.svg" /> Contents</a></p>
 			</div>
 			<?php
 		endif;
