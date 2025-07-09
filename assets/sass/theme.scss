@@ -1,0 +1,27 @@
+// Base set-up
+@import "base/modern-normalize.scss";
+@import "base/element-reset";
+
+@import "base/breakpoints";
+
+@import "base/colours";
+@import "base/variables"; 
+@import "base/typography";
+@import "base/elements";
+
+@import "base/layout";
+
+
+// Custom components
+@import "components/forms";
+@import "components/blocks";
+
+
+// Custom layouts
+@import "layouts/header";
+@import "layouts/entry-content"; 
+@import "layouts/footer";
+
+
+// Customise 3rd party packages
+@import "vendor/gaw-variations";

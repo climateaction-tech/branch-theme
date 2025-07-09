@@ -1,0 +1,83 @@
+/* Entry Content 
+    Generic styles for blog or page content
+    aka the_post.
+--------------------------------------------- */
+
+.hentry {
+    padding-bottom: $clamp-spacing;
+}
+
+.entry-header {
+    max-width: $max-reading-width;
+    margin-left: 0;
+}
+
+.entry-meta {
+	font-style: italic;
+
+    .author {
+        opacity: $text-opacity;
+    }
+}
+
+.entry-title {
+    a {
+	    //text-decoration: none;
+    }
+}
+
+.entry-content {
+
+    // Elements we wish to set to reading width are here.
+    p, ul, ol,
+    blockquote,
+    figcaption,
+    h1, h2, h3, h4, h5, h6  {
+        max-width: $max-reading-width;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    // Other variations are defined for those elements below..
+    ul, ol {
+        margin: 0 auto 1.5em;
+        padding: 0 3em;
+    }
+
+    figcaption {
+	    text-align: center;
+    }
+
+    a.more-link {
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        position: relative;
+        padding: 1em 0;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 8%;
+            height: 1px;
+            bottom: 3.5em;
+            left: 46%;
+            border-bottom: 2px solid;
+        }
+    }   
+
+    h2, h3, h5 {
+	    margin: 3rem auto 1.5rem;
+	    position: relative;
+    }
+
+    h4 {
+        margin: 0 auto 1rem;
+    }
+
+    img {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+

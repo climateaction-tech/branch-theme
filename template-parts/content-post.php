@@ -36,7 +36,7 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php branch_post_thumbnail(); ?>
+	<?php //branch_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php

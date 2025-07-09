@@ -1,0 +1,114 @@
+{
+	"version":1,
+	"settings": {
+		"layout": {
+			"contentSize": "1140px",
+			"wideSize": "1400px",
+			"units": [ "px", "em", "rem", "%", "vw" ]
+		},
+		"spacing": {
+            "blockGap": true
+        },
+		"color": {
+			"custom": false,
+			"corePalette": false,
+			"coreGradients": false,
+			"palette": [
+				{
+					"slug": "text-colour",
+					"color": "#2D312A",
+					"name": "Branch black"
+				}
+			]
+		},
+		"typography": {
+			"fontFamilies": [
+				{
+					"fontFamily": "'Inter', Arial, sans-serif",
+					"slug": "body",
+					"name": "Body font"
+				},
+                {
+					"fontFamily": "'Courier 10 Pitch', courier, monospace",
+					"slug": "code",
+					"name": "Code font"
+				}
+			],
+			"fontSize": "18px",
+			"fontSizes": [
+				{
+					"slug": "small",
+					"size": "clamp(0.8rem, 2.6vw, 0.9rem)",
+					"name": "Small"
+				},
+				{
+					"slug": "normal",
+					"size": "1rem",
+					"name": "Body"
+				},
+				{
+					"slug": "medium",
+					"size": "clamp(1.2rem, 4vw, 1.4rem)",
+					"name": "Medium"
+				},
+				{
+					"slug": "large",
+					"size": "clamp(1.4rem, 5vw, 1.6rem)",
+					"name": "Large"
+				},
+				{
+					"slug": "x-large",
+					"size": "clamp(1.6rem, 4vw, 2.0rem)",
+					"name": "Extra large"
+				},
+				{
+					"slug": "huge",
+					"size": "clamp(2.6rem, 5vw, 3.8rem)",
+					"name": "Huge"
+				}
+			]
+		}
+	},
+	"styles": {
+		"spacing": {
+			"blockGap": "1rem"
+		},
+		"elements": {
+			"h1": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--huge)"
+				}
+			},
+			"h2": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--x-large)"
+				}
+			},
+			"h3": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--large)",
+					"fontFamily": "var(--wp--preset--font-family--headings)",
+					"lineHeight": "1.2"
+				},
+				"color": {
+					"text": "var(--wp--preset--color--opcan-forest-green)"
+				}
+			},
+			"h4": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--medium)"
+				}
+			},
+			"h5": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--normal)"
+				},
+				"spacing": {
+					"margin":{
+						"bottom": "1rem"
+					}
+				}
+			}	
+		}
+	}
+}

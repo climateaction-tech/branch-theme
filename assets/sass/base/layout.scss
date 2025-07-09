@@ -1,0 +1,33 @@
+/* Layout. 
+    Generic layouts applicable to most pages.
+--------------------------------------------- */
+
+// The key components of each page,
+// let's keep these page margins unified.
+.site-header,
+.secondary-nav,
+.table-of-contents,
+.site-main,
+.site-footer > div {
+    padding-left: $safe-spacing; // fallback.
+    padding-right: $safe-spacing; // fallback.
+
+    padding-left: $clamp-spacing;
+    padding-right: $clamp-spacing;
+}
+
+
+.site-main {
+	//max-width: 50rem;
+	margin: 0 auto;
+    color: var(--text-colour);
+    position: relative; // Needed as an anchor for the blackout overlay.
+}
+
+.page-content,
+.entry-content,
+.entry-summary,
+article.hentry {
+    margin-top: $safe-spacing; // fallback.
+    margin-top: $clamp-spacing;
+}
