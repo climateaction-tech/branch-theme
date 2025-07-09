@@ -32,6 +32,8 @@ function branch_scripts() {
 	wp_enqueue_style( 'selectr-style', get_template_directory_uri() . '/assets/css/selectr.css', array(), filemtime( get_template_directory() . '/assets/css/selectr.css' ) );
 	wp_style_add_data( 'branch-styles', 'rtl', 'replace' );
 
+	wp_enqueue_script( 'branch-toc', get_template_directory_uri() . '/assets/js/branch-toc.min.js', array(), filemtime( get_template_directory() . '/assets/js/branch-toc.js' ), true );
+
 	/* Footer scripts */
 	// First two need to go first or seems to break stuff.
 	//wp_enqueue_script( 'popperjs', 'https://unpkg.com/@popperjs/core@2', array(), '2.9.2', true );

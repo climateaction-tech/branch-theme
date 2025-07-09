@@ -9,7 +9,7 @@
     "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css --quiet assets/sass/theme.scss:assets/css/theme.css",
     "css-minify": "cleancss -O1 --format breakWith=lf --with-rebase --source-map --source-map-inline-sources --output assets/css/ --batch --batch-suffix \".min\" \"assets/css/*.css\" \"!assets/css/*.min.css\" \"!assets/css/*rtl*.css\"",
     "js": "npm-run-all js-minify",
-    "js-minify": "terser assets/js/theme.js --output assets/js/theme.min.js",
+    "js-minify": "terser assets/js/branch-toc.js --output assets/js/branch-toc.min.js",
     "watch": "npm-run-all --parallel watch-run-*",
     "watch-bs": "npm-run-all --parallel bs watch-run-*",
     "watch-run-css": "nodemon --watch assets/sass/ --ext scss --exec \"npm-run-all css\"",
