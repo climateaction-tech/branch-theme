@@ -1,9 +1,9 @@
-const gawIntensity = document.querySelector('[data-gaw-mode]');
+// const gawIntensity = document.querySelector('[data-gaw-mode]');
 
-// temp code for testing.
-console.log( gawIntensity.dataset.gawMode );
-gawIntensity.dataset.gawMode = "low";
-console.log( gawIntensity.dataset.gawMode );
+// // temp code for testing.
+// console.log( gawIntensity.dataset.gawMode );
+// gawIntensity.dataset.gawMode = "low";
+// console.log( gawIntensity.dataset.gawMode );
 
 async function main() {
     const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay)),
