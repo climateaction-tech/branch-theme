@@ -809,6 +809,10 @@ body {
 .entry-content h4 {
   margin: 0 auto 1rem;
 }
+.entry-content img {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* Layout. 
     Styling for the footer.
