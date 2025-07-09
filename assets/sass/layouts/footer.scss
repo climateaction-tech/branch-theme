@@ -14,20 +14,24 @@
 		margin-bottom: 0;
 		padding: 2rem;
 	}
+
+	ul.wp-block-navigation__container {
+
+		@include respond-to('medium'){
+			justify-content: center;
+			row-gap: 0.75rem;
+		}
+	}
 }
 
 .footer-nav {
 	margin-top: 1.5em;
-}
-@media screen and (min-width: 37.5em) {
-	.footer-nav {
-		margin-top: 0;
-		display: flex;
-		align-items: center;
-	}
-}
-@media screen and (max-width: 782px) {
-	.site-footer .wp-block-navigation__container {
-		justify-content: center;
+
+	@include respond-to('small'){
+		.footer-nav {
+			margin-top: 0;
+			display: flex;
+			align-items: center;
+		}
 	}
 }
