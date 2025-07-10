@@ -17,7 +17,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/svg+xml" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/branch_black_icon.svg">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<link rel="preload" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
 
 	<?php wp_head(); ?>
 

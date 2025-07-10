@@ -9,6 +9,7 @@ body {
 	background: #fff;
     color: var(--wp--preset--color--body-color);
 	font-size: 1rem;
+	font-weight: $default-font-weight;
 }
 
 // body,
@@ -27,6 +28,7 @@ address {
 
 h1, h2, h3, h4 {
     line-height: 1.3;
+	font-weight: $default-font-weight;
 }
 
 blockquote {
@@ -173,4 +175,9 @@ ins {
 
 big {
 	font-size: 125%;
+}
+
+b,
+strong {
+	font-weight: $bold-font-weight;
 }
