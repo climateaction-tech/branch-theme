@@ -1,5 +1,5 @@
 {
-	"version":1,
+	"version":2,
 	"settings": {
 		"layout": {
 			"contentSize": "1140px",
@@ -10,9 +10,9 @@
             "blockGap": true
         },
 		"color": {
-			"custom": false,
-			"corePalette": false,
-			"coreGradients": false,
+			"defaultDuotone": false,
+			"defaultGradients": false,
+			"defaultPalette": false,	
 			"palette": [
 				{
 					"slug": "text-colour",
