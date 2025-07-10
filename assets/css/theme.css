@@ -203,7 +203,6 @@ img {
 # Intensity colour scheme variables.
 --------------------------------------------------------------*/
 :root {
-  --logo-colour: #B7410E;
   --bg-colour: #E8E5DC;
   --bg-colour-mid: #D8D1C1;
   --bg-colour-dark: #C8C2B0;

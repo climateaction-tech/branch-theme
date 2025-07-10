@@ -34,8 +34,7 @@ $colour-schemes: (
   @return map-get( map-get( $colour-schemes, $colour ), $tone );
 }
 
-:root {
-	--logo-colour: #B7410E;       
+:root {      
 	--bg-colour: #{ colour( default ) };
 	--bg-colour-mid: #{ colour( default, mid ) };
 	--bg-colour-dark: #{ colour( default, dark ) };
