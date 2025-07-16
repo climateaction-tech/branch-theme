@@ -6,8 +6,15 @@
 // avoiding conflicts with header or footer.
 .hentry {
 	.wp-block-image,
-	.wp-block-columns {
+	.wp-block-columns,
+	.wp-block-group {
 		max-width: $max-image-width;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.wp-block-buttons {
+		max-width: $max-reading-width;
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -33,4 +40,23 @@
 
 .wp-block-pullquote {
 	padding-bottom: 1em; 
+}
+
+.wp-block-buttons {
+	margin-top: $safe-spacing; // fallback.
+    margin-top: $clamp-spacing;
+	margin-bottom: $safe-spacing; // fallback.
+    margin-bottom: $clamp-spacing;
+
+	.wp-block-button__link {
+		color: white;
+		background-color: var(--wp--preset--color--text-colour);
+		border: 1px solid var(--wp--preset--color--text-colour);
+	}
+
+	&:hover .wp-block-button__link{
+		color: var(--wp--preset--color--text-colour);
+		background-color: var(--bg-colour-dark);
+		border: 1px solid var(--wp--preset--color--text-colour);
+	}
 }

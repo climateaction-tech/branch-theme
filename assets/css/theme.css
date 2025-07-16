@@ -387,6 +387,11 @@ strong {
 
 /* Layout. 
     Generic layouts applicable to most pages.
+
+    1. Page key components.
+    2. Element flow.
+--------------------------------------------- */
+/* 1. Page key components.
 --------------------------------------------- */
 .site-header,
 .secondary-nav,
@@ -410,6 +415,12 @@ strong {
 .entry-summary,
 article.hentry {
   margin-top: 1rem;
+}
+
+/* 2. Element flow.
+--------------------------------------------- */
+.entry-content h2 + h3 {
+  margin-top: 0;
 }
 
 /* Forms
@@ -496,8 +507,14 @@ textarea {
     Override default WP block styling.
 --------------------------------------------- */
 .hentry .wp-block-image,
-.hentry .wp-block-columns {
+.hentry .wp-block-columns,
+.hentry .wp-block-group {
   max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hentry .wp-block-buttons {
+  max-width: 35rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -521,6 +538,23 @@ textarea {
 
 .wp-block-pullquote {
   padding-bottom: 1em;
+}
+
+.wp-block-buttons {
+  margin-top: 1rem;
+  margin-top: clamp(0.5rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+  margin-bottom: clamp(0.5rem, 5vw, 3rem);
+}
+.wp-block-buttons .wp-block-button__link {
+  color: white;
+  background-color: var(--wp--preset--color--text-colour);
+  border: 1px solid var(--wp--preset--color--text-colour);
+}
+.wp-block-buttons:hover .wp-block-button__link {
+  color: var(--wp--preset--color--text-colour);
+  background-color: var(--bg-colour-dark);
+  border: 1px solid var(--wp--preset--color--text-colour);
 }
 
 /* Layout. 
@@ -773,6 +807,14 @@ textarea {
 /* Home. 
     Customisations just for the site homepage.
 --------------------------------------------- */
+.home .entry-content > *:first-child {
+  margin-top: 1rem;
+  margin-top: clamp(0.5rem, 5vw, 3rem);
+}
+.home .entry-content .wp-block-columns {
+  column-gap: 3rem;
+}
+
 /* Pages relating to issues. 
     Issues overview, articles and issue homepages.
 
