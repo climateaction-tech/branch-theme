@@ -935,5 +935,13 @@ div.carbon-alt {
 }
 /* Hide all images by default. How they appear depends on carbon intensity.
  * (Except for specifically whitelisted images and placeholders.) */
+/* PDF viewer 
+    Third party plugin for embedding pdfs.
+--------------------------------------------- */
+.entry-content .pdfemb-viewer {
+  max-width: 35rem;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /*# sourceMappingURL=theme.css.map */
