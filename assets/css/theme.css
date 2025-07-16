@@ -213,17 +213,6 @@ img {
     Constants we want to use throughout theme.
     Many are also being set in theme.json.
 --------------------------------------------- */
-/* Typography
---------------------------------------------- */
-/* Font definitions
---------------------------------------------- */
-@font-face {
-  font-family: "Inter";
-  src: url("../fonts/Inter-Variable.woff2") format("woff2") format("woff2-variations");
-  font-weight: 400 600;
-  font-style: normal;
-  font-display: swap;
-}
 /* Main HTML Elements
 --------------------------------------------- */
 html {
