@@ -695,7 +695,7 @@ textarea {
 }
 
 .entry-header {
-  max-width: 35rem;
+  max-width: 48rem;
   margin-left: 0;
 }
 
@@ -784,12 +784,6 @@ textarea {
 /* Home. 
     Customisations just for the site homepage.
 --------------------------------------------- */
-@media (min-width: 1200px) {
-  .home .entry-header {
-    max-width: 31rem;
-  }
-}
-
 /* Pages relating to issues. 
     Issues overview, articles and issue homepages.
 
