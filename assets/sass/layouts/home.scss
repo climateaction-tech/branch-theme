@@ -4,9 +4,14 @@
 
 .home {
 
-    .entry-header {
-        @include respond-to('xl') {
-            //max-width: 31rem;
+    .entry-content {
+        > *:first-child {
+            margin-top: $safe-spacing; // fallback.
+            margin-top: $clamp-spacing;
+        }
+
+        .wp-block-columns {
+            column-gap: 3rem;
         }
     }
 }

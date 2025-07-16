@@ -1,5 +1,11 @@
 /* Layout. 
     Generic layouts applicable to most pages.
+
+    1. Page key components.
+    2. Element flow.
+--------------------------------------------- */
+
+/* 1. Page key components.
 --------------------------------------------- */
 
 // The key components of each page,
@@ -29,4 +35,15 @@
 .entry-summary,
 article.hentry {
     margin-top: $safe-spacing;
+}
+
+
+/* 2. Element flow.
+--------------------------------------------- */
+
+.entry-content {
+
+    h2 + h3 {
+        margin-top: 0;
+    }
 }
