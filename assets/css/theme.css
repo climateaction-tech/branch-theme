@@ -933,7 +933,18 @@ div.carbon-alt {
     font-size: 2em;
   }
 }
-/* Hide all images by default. How they appear depends on carbon intensity.
- * (Except for specifically whitelisted images and placeholders.) */
+/* GAW component bar.
+--------------------------------------------- */
+.grid-aware-components {
+  margin-bottom: 0.5rem;
+}
+
+/* PDF viewer 
+    Third party plugin for embedding pdfs.
+--------------------------------------------- */
+.entry-content .pdfemb-viewer {
+  max-width: 35rem;
+  margin: 1.5rem auto;
+}
 
 /*# sourceMappingURL=theme.css.map */
