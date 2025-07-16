@@ -30,7 +30,7 @@
 
 	<header id="masthead" class="site-header">
 
-		<div id="gaw-data-bar" style="background-color: red; width: 100%; height: 50px;">GAW web component here.</div>
+		<div class="grid-aware-components" id="gaw-data-bar" style="background-color: red; width: 100%; height: 50px;">GAW web component here.</div>
 
 		<div class="branch-branding">
 			<div class="logo">
