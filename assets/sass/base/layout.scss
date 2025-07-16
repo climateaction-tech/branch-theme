@@ -28,6 +28,5 @@
 .entry-content,
 .entry-summary,
 article.hentry {
-    margin-top: $safe-spacing; // fallback.
-    margin-top: $clamp-spacing;
+    margin-top: $safe-spacing;
 }

@@ -421,7 +421,6 @@ strong {
 .entry-summary,
 article.hentry {
   margin-top: 1rem;
-  margin-top: clamp(0.5rem, 5vw, 3rem);
 }
 
 /* Forms
@@ -679,82 +678,8 @@ textarea {
 
 /* 3. Secondary nav (contents bar).
 --------------------------------------------- */
-.secondary-nav {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.07em;
-}
-.secondary-nav img {
-  display: inline-block;
-}
-
-body {
-  position: relative;
-}
-
-.blackout {
-  background-color: var(--text-colour);
-  left: -100%;
-  opacity: 0%;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transition: opacity 0.5s;
-  z-index: 1;
-}
-
-.blackout-active {
-  display: block;
-  left: 0;
-  opacity: 25%;
-}
-
-.blackout-fading {
-  opacity: 0%;
-}
-
-.nav-contents p {
-  margin: 0;
-}
-.nav-contents p, .nav-contents a.more-link {
-  text-transform: uppercase;
-}
-.nav-contents p img {
-  margin-right: 0.5em;
-  margin-bottom: -0.1em;
-}
-.nav-contents a {
-  color: var(--text-colour);
-  text-decoration: none;
-}
-
-.table-of-contents {
-  position: absolute;
-  transform: translateX(-100%);
-  transition: transform 0.5s;
-  z-index: 2;
-  max-width: 35rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 1.5rem;
-  line-height: 1.7;
-}
-.table-of-contents-active {
-  transform: translateX(0);
-}
-.table-of-contents h2 {
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-.table-of-contents p {
-  font-size: 0.9rem;
-  margin-bottom: 1.5rem;
-}
-.table-of-contents a {
-  text-decoration: none;
+.secondary-nav, .table-of-contents {
+  display: none;
 }
 
 /* Entry Content 
@@ -850,6 +775,112 @@ body {
     display: flex;
     align-items: center;
   }
+}
+
+/* Home. 
+    Customisations just for the site homepage.
+--------------------------------------------- */
+@media (min-width: 1200px) {
+  .home .entry-header {
+    max-width: 30rem;
+  }
+}
+
+/* Singular. 
+    A specific page type used for 
+    issues articles and issue homepages.
+--------------------------------------------- */
+body {
+  position: relative;
+}
+
+.single-post .secondary-nav, .single-post .table-of-contents,
+.tax-issue .secondary-nav,
+.tax-issue .table-of-contents {
+  display: block;
+}
+.single-post .secondary-nav,
+.tax-issue .secondary-nav {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.07em;
+}
+.single-post img,
+.tax-issue img {
+  display: inline-block;
+}
+.single-post .blackout,
+.tax-issue .blackout {
+  background-color: var(--text-colour);
+  left: -100%;
+  opacity: 0%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s;
+  z-index: 1;
+}
+.single-post .blackout-active,
+.tax-issue .blackout-active {
+  display: block;
+  left: 0;
+  opacity: 25%;
+}
+.single-post .blackout-fading,
+.tax-issue .blackout-fading {
+  opacity: 0%;
+}
+.single-post .nav-contents p,
+.tax-issue .nav-contents p {
+  margin: 0;
+}
+.single-post .nav-contents p, .single-post .nav-contents a.more-link,
+.tax-issue .nav-contents p,
+.tax-issue .nav-contents a.more-link {
+  text-transform: uppercase;
+}
+.single-post .nav-contents p img,
+.tax-issue .nav-contents p img {
+  margin-right: 0.5em;
+  margin-bottom: -0.1em;
+}
+.single-post .nav-contents a,
+.tax-issue .nav-contents a {
+  color: var(--text-colour);
+  text-decoration: none;
+}
+.single-post .table-of-contents,
+.tax-issue .table-of-contents {
+  position: absolute;
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+  z-index: 2;
+  max-width: 35rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1.5rem;
+  line-height: 1.7;
+}
+.single-post .table-of-contents-active,
+.tax-issue .table-of-contents-active {
+  transform: translateX(0);
+}
+.single-post .table-of-contents h2,
+.tax-issue .table-of-contents h2 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.single-post .table-of-contents p,
+.tax-issue .table-of-contents p {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+.single-post .table-of-contents a,
+.tax-issue .table-of-contents a {
+  text-decoration: none;
 }
 
 /* The parts that change for the GAW variations. 

@@ -1,0 +1,12 @@
+/* Home. 
+    Customisations just for the site homepage.
+--------------------------------------------- */
+
+.home {
+
+    .entry-header {
+        @include respond-to('xl') {
+            max-width: 30rem;
+        }
+    }
+}
