@@ -1,8 +1,39 @@
-/* Singular. 
-    A specific page type used for 
-    issues articles and issue homepages.
+/* Pages relating to issues. 
+    Issues overview, articles and issue homepages.
+
+    1. /Issues stuff.
+    2. Secondary nav and table of contents.
+
 --------------------------------------------- */
 
+
+
+
+/* 1. /Issues stuff.
+--------------------------------------------- */
+
+// .issues-column is applied manually to columns in the editor.
+.issues-columns {
+    row-gap: 0;
+
+    .wp-block-column {
+        margin-bottom: 3rem;
+    }
+
+    // Issue season.
+    .wp-block-heading {
+        margin: 0.5rem 0;
+    }
+
+    h4 {
+        font-size: var(--wp--preset--font-size--normal);
+    }
+}
+
+
+
+/* 2. Secondary nav and table of contents.
+--------------------------------------------- */
 body {
 	position: relative; // This is to make the absolute work in blackout below work.
 }

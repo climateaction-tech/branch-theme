@@ -2,11 +2,19 @@
     Override default WP block styling.
 --------------------------------------------- */
 
+// Control width of blocks inside page content,
+// avoiding conflicts with header or footer.
+.hentry {
+	.wp-block-image,
+	.wp-block-columns {
+		max-width: $max-image-width;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
 .wp-block-image {
 	text-align: center;
-	max-width: $max-image-width;
-	margin-left: auto;
-	margin-right: auto;
 
 	.wp-element-caption {
 		font-size: var(--wp--preset--font-size--small);
