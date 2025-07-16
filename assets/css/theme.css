@@ -506,11 +506,15 @@ textarea {
 /* Wp-blocks
     Override default WP block styling.
 --------------------------------------------- */
-.wp-block-image {
-  text-align: center;
+.hentry .wp-block-image,
+.hentry .wp-block-columns {
   max-width: 48rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+.wp-block-image {
+  text-align: center;
 }
 .wp-block-image .wp-element-caption {
   font-size: var(--wp--preset--font-size--small);
@@ -782,13 +786,33 @@ textarea {
 --------------------------------------------- */
 @media (min-width: 1200px) {
   .home .entry-header {
-    max-width: 30rem;
+    max-width: 31rem;
   }
 }
 
-/* Singular. 
-    A specific page type used for 
-    issues articles and issue homepages.
+/* Pages relating to issues. 
+    Issues overview, articles and issue homepages.
+
+    1. /Issues stuff.
+    2. Secondary nav and table of contents.
+
+--------------------------------------------- */
+/* 1. /Issues stuff.
+--------------------------------------------- */
+.issues-columns {
+  row-gap: 0;
+}
+.issues-columns .wp-block-column {
+  margin-bottom: 3rem;
+}
+.issues-columns .wp-block-heading {
+  margin: 0.5rem 0;
+}
+.issues-columns h4 {
+  font-size: var(--wp--preset--font-size--normal);
+}
+
+/* 2. Secondary nav and table of contents.
 --------------------------------------------- */
 body {
   position: relative;
