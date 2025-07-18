@@ -1,6 +1,6 @@
 <?php
 /**
- * Branch functions and definitions
+ * Branch functions and definitions.
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
