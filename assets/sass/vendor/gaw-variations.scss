@@ -78,7 +78,9 @@ div.carbon-alt {
 	width: 100%;
 	z-index: -1;
 }
-@media screen and (min-width: 37.5em) {
+
+// Page 675 is the issues page.
+@include respond-to( 'medium' ) {
 	body:not(.page-id-675) div.carbon-alt {
 		width: 80%;
 		left: 10%;
@@ -88,6 +90,7 @@ div.carbon-alt {
 		font-size: 2em;
 	}
 }
+
 
 /* GAW component bar.
 --------------------------------------------- */
