@@ -28,9 +28,8 @@ function asset_path($filename) {
  * Enqueue scripts and styles.
  */
 function branch_scripts() {
-    wp_enqueue_style( 'fonts', get_template_directory_uri() . '/assets/css/fonts.css', array(), filemtime( get_template_directory() . '/assets/css/fonts.css' ) );
+    wp_enqueue_style( 'fonts-css', get_template_directory_uri() . '/assets/css/fonts.css', array(), filemtime( get_template_directory() . '/assets/css/fonts.css' ) );
 	wp_enqueue_style( 'branch-styles', get_template_directory_uri() . '/assets/css/theme.min.css', array(), filemtime( get_template_directory() . '/assets/css/theme.min.css' ) );
-	wp_enqueue_style( 'font-faces', get_template_directory_uri() . '/assets/css/fonts.css', array(), filemtime( get_template_directory() . '/assets/css/fonts.css' ) );
 
     wp_style_add_data( 'branch-styles', 'rtl', 'replace' );
 
