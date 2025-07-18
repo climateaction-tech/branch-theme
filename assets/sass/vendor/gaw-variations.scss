@@ -45,7 +45,7 @@ body,
 	figure.wp-block-image span, 
 	li.blocks-gallery-item span {
 		position: relative;
-		background-color: var(--bg-colour-dark);
+		background-color: transparent;
 		z-index: 0;
 		cursor: pointer;
 	}
