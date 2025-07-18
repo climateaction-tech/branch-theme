@@ -1,0 +1,37 @@
+/* Layout. 
+    Styling for the footer.
+--------------------------------------------- */
+
+.site-footer {
+	padding-top: 2rem;
+
+    a, a span {
+	    color: var(--wp--preset--color--body-colour);
+	    text-decoration: none;
+    }
+
+	> div:last-of-type {
+		margin-bottom: 0;
+		padding: 2rem;
+	}
+
+	ul.wp-block-navigation__container {
+
+		@include respond-to('medium'){
+			justify-content: center;
+			row-gap: 0.75rem;
+		}
+	}
+}
+
+.footer-nav {
+	margin-top: 1.5em;
+
+	@include respond-to('small'){
+		.footer-nav {
+			margin-top: 0;
+			display: flex;
+			align-items: center;
+		}
+	}
+}

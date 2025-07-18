@@ -1,0 +1,42 @@
+/* Colours. 
+    Constants we want to use throughout theme.
+    Many are also being set in theme.json.
+--------------------------------------------- */
+
+
+/*--------------------------------------------------------------
+# Intensity colour scheme variables.
+--------------------------------------------------------------*/
+$colour-schemes: (
+	default: (
+		colour: #E8E5DC,
+		mid: #D8D1C1,
+		dark: #C8C2B0,
+	),
+	high: (
+		colour: #F4E0DA,
+		mid: #F5D5CB,
+		dark: #EBCDC3,	
+	),
+	medium: (
+		colour: #FAF1E7,
+		mid: #F3E7DA,
+		dark: #E6D9CB,	
+	),
+	low: (
+		colour: #E6F1E4,
+		mid: #DFEBDC,
+		dark: #D0DECD,	
+	)
+); 
+
+@function colour( $colour, $tone: 'colour' ) {
+  @return map-get( map-get( $colour-schemes, $colour ), $tone );
+}
+
+:root {      
+	--bg-colour: #{ colour( default ) };
+	--bg-colour-mid: #{ colour( default, mid ) };
+	--bg-colour-dark: #{ colour( default, dark ) };
+	--text-colour: var(--wp--preset--color--text-colour);
+}

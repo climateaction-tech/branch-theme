@@ -1,0 +1,62 @@
+/* Wp-blocks
+    Override default WP block styling.
+--------------------------------------------- */
+
+// Control width of blocks inside page content,
+// avoiding conflicts with header or footer.
+.hentry {
+	.wp-block-image,
+	.wp-block-columns,
+	.wp-block-group {
+		max-width: $max-image-width;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.wp-block-buttons {
+		max-width: $max-reading-width;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.wp-block-image {
+	text-align: center;
+
+	.wp-element-caption {
+		font-size: var(--wp--preset--font-size--small);
+		opacity: $text-opacity;
+	}
+}
+
+.wp-block-gallery .blocks-gallery-grid {
+	margin-bottom: 0;
+	padding: 0;
+}
+
+.wp-block-embed {
+	text-align: center;
+}
+
+.wp-block-pullquote {
+	padding-bottom: 1em; 
+}
+
+.wp-block-buttons {
+	margin-top: $safe-spacing; // fallback.
+    margin-top: $clamp-spacing;
+	margin-bottom: $safe-spacing; // fallback.
+    margin-bottom: $clamp-spacing;
+
+	.wp-block-button__link {
+		color: white;
+		background-color: var(--wp--preset--color--text-colour);
+		border: 1px solid var(--wp--preset--color--text-colour);
+	}
+
+	&:hover .wp-block-button__link{
+		color: var(--wp--preset--color--text-colour);
+		background-color: var(--bg-colour-dark);
+		border: 1px solid var(--wp--preset--color--text-colour);
+	}
+}

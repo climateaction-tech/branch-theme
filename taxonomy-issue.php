@@ -25,6 +25,8 @@ $image_caption  = get_field( 'featured_image_caption', $term );
 
 <main id="primary" class="site-main">
 
+	<div class="blackout"></div>
+
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 		<header class="entry-header">

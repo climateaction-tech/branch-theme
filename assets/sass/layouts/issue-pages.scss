@@ -1,0 +1,131 @@
+/* Pages relating to issues. 
+    Issues overview, articles and issue homepages.
+
+    1. /Issues stuff.
+    2. Secondary nav and table of contents.
+
+--------------------------------------------- */
+
+
+
+
+/* 1. /Issues stuff.
+--------------------------------------------- */
+
+// .issues-column is applied manually to columns in the editor.
+.issues-columns {
+    row-gap: 0;
+
+    .wp-block-column {
+        margin-bottom: 3rem;
+    }
+
+    // Issue season.
+    .wp-block-heading {
+        margin: 0.5rem 0;
+    }
+
+    h4 {
+        font-size: var(--wp--preset--font-size--normal);
+    }
+}
+
+
+
+/* 2. Secondary nav and table of contents.
+--------------------------------------------- */
+body {
+	position: relative; // This is to make the absolute work in blackout below work.
+}
+
+.single-post,
+.tax-issue {
+
+    .secondary-nav, .table-of-contents {
+        display: block;
+    }
+
+    // The secondary nav which holds the contents bar,
+    // only appears on a singular. 
+    // So let's apply the css just here.
+    .secondary-nav {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.07em;
+    }
+
+    img {
+        display: inline-block;
+    }
+
+    .blackout {
+        background-color: var(--text-colour);
+        left: -100%;
+        opacity: 0%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: opacity 0.5s;
+        z-index: 1;
+    }
+    .blackout-active {
+        display: block;
+        left: 0;
+        opacity: 25%;
+    }
+
+    .blackout-fading {
+        opacity: 0%;
+    }
+
+    .nav-contents {
+        p {
+            margin: 0;
+        }
+        p, a.more-link {
+            text-transform: uppercase;
+        }
+        // Contents menu icon.
+        p img {
+            margin-right: .5em;
+            margin-bottom: -.1em;
+        }
+        a {
+            color: var(--text-colour);
+            text-decoration: none;
+        }
+    }
+
+    .table-of-contents {
+        position: absolute;
+        transform: translateX(-100%);
+        transition: transform 0.5s;
+        z-index: 2;
+        max-width: $max-reading-width;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 1.5rem;
+        line-height: 1.7;
+
+        &-active {
+            transform: translateX(0);
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+}

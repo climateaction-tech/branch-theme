@@ -1,0 +1,159 @@
+/* Layout. 
+    Styling for the header.
+--------------------------------------------- */
+
+/* 
+   1. Header layout.
+   2. Main nav.
+   3. Secondary nav (contents bar).
+*/
+
+
+/* 1. Header layout.
+--------------------------------------------- */
+.site-header {
+	padding-top: 0.5rem;
+}
+
+.branch-branding {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.logo, .site-branding, .site-credit {
+	height: 2.6rem;
+}
+
+.logo {
+	display: none;
+
+	@include respond-to('xs') {
+		display: flex;
+		padding-right: 0.5rem;
+	}
+
+	img {
+		min-width: 40px;
+	}
+}
+
+.site-branding {
+	padding-right: 2rem;
+
+	@include respond-to('medium') {
+		padding-right: 3rem;
+	}
+	@include respond-to('large') {
+		padding-right: 5rem;
+	}
+}
+
+.site-title {
+	font-size: 2rem;
+	font-weight: bold;
+	margin: 0;
+	text-transform: lowercase;
+	height: 100%;
+	display: flex;
+	align-items: center;
+
+	a {
+		color: var(--text-colour);
+		text-decoration: none;
+	}
+}
+
+.site-description {
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
+
+.site-credit {
+	display: none;
+
+	@include respond-to('medium') {
+		display: block;
+		flex: 1 0 0;
+	}
+}
+
+.site-credit__link {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	height: 100%;
+}
+.site-credit__image {
+	max-width: 150px;
+}
+
+/* 2. Main nav.
+--------------------------------------------- */
+.main-navigation {
+	display: block;
+	align-self: center;
+	height: auto;
+
+	.menu-main-navigation-container {
+		height: 100%;
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		flex-wrap: wrap;
+		height: 100%;
+	}
+
+	li {
+		position: relative;
+		text-transform: uppercase;
+		padding: 0.5rem 1rem;
+
+		&:first-of-type {
+			padding-left: 0;
+		}
+
+		&:last-of-type {
+			padding-right: 0;
+		}
+
+		@include respond-to( 'medium' ) {
+			padding: 1.5rem;
+
+			&:last-of-type {
+				padding-right: 1.5rem;
+			}
+		}
+
+		@include respond-to( 'large' ) {
+			padding: 2.5rem;
+
+			&:last-of-type {
+				padding-right: 2.5rem;
+			}
+		}
+
+		a {
+			color: var(--text-colour);
+			margin-top: 4px;
+			display: block;
+			text-decoration: none;
+		}
+	}
+}
+
+
+
+/* 3. Secondary nav (contents bar).
+--------------------------------------------- */
+
+.secondary-nav, .table-of-contents {
+	display: none;
+}

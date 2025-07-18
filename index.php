@@ -17,6 +17,8 @@ get_header();
 
 	<main id="primary" class="site-main">
 
+		<div class="blackout"></div>
+
 		<?php
 		if ( have_posts() ) :
 
