@@ -27,8 +27,15 @@ address {
 }
 
 h1, h2, h3, h4 {
-    line-height: 1.3;
-	font-weight: $default-font-weight;
+	font-weight: $light-font-weight;
+}
+
+h1 {
+    line-height: 1.1;
+}
+
+h2, h3, h4 {
+	line-height: 1.3;
 }
 
 blockquote {
@@ -66,9 +73,9 @@ a {
 
 	&:hover {
 		text-decoration: none;
+		color: var(--wp--preset--color--body-text);
 	}
 
-	&:hover,
 	&:focus,
 	&:active {
 		color: #191970;
