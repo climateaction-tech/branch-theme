@@ -49,22 +49,6 @@ body,
 		z-index: 0;
 		cursor: pointer;
 	}
-
-	.wp-block-image {
-		position: relative;
-
-		&::after {
-			content: '';
-			display: block;
-			height: 100%;
-			width: 100%;
-			position: absolute;
-			background-color: var(--bg-colour-dark);
-			top: 0;
-			z-index: -1;
-			cursor: pointer;
-		}
-	}
 }
 
 div.show-image {
