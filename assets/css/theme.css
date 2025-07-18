@@ -512,7 +512,8 @@ textarea {
 --------------------------------------------- */
 .hentry .wp-block-image,
 .hentry .wp-block-columns,
-.hentry .wp-block-group {
+.hentry .wp-block-group,
+.hentry .wp-block-table {
   max-width: 48rem;
   margin-left: auto;
   margin-right: auto;
@@ -1008,7 +1009,7 @@ div.carbon-alt {
   z-index: -1;
 }
 
-@media screen and (min-width: 37.5em) {
+@media (min-width: 768px) {
   body:not(.page-id-675) div.carbon-alt {
     width: 80%;
     left: 10%;
