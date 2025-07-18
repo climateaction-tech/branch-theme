@@ -264,23 +264,19 @@ blockquote p {
 a {
   color: var(--wp--preset--color--body-text);
 }
-
 a:visited {
   color: #800080;
 }
-
-a:hover,
-a:focus,
-a:active {
+a:hover {
+  text-decoration: none;
+}
+a:hover, a:focus, a:active {
   color: #191970;
 }
-
 a:focus {
   outline: thin dotted;
 }
-
-a:hover,
-a:active {
+a:hover, a:active {
   outline: 0;
 }
 
