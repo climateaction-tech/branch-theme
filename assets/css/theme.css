@@ -426,6 +426,11 @@ article.hentry {
 .entry-content h2 + h3 {
   margin-top: 0;
 }
+.entry-content figure + .wp-block-pullquote,
+.entry-content h2 + .wp-block-pullquote,
+.entry-content h3 + .wp-block-pullquote {
+  padding-top: 1rem;
+}
 
 /* Forms
 --------------------------------------------- */
@@ -513,7 +518,8 @@ textarea {
 .hentry .wp-block-image,
 .hentry .wp-block-columns,
 .hentry .wp-block-group,
-.hentry .wp-block-table {
+.hentry .wp-block-table,
+.hentry .wp-block-gallery {
   max-width: 48rem;
   margin-left: auto;
   margin-right: auto;
