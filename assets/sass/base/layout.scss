@@ -47,8 +47,10 @@ article.hentry {
         margin-top: 0;
     }
 
-    //Basically an image followed by a quote.
-    figure + .wp-block-pullquote {
+    //An image or h2 followed by a quote.
+    figure + .wp-block-pullquote,
+    h2 + .wp-block-pullquote,
+    h3 + .wp-block-pullquote {
         padding-top: 1rem;
     }
 }
