@@ -426,7 +426,9 @@ article.hentry {
 .entry-content h2 + h3 {
   margin-top: 0;
 }
-.entry-content figure + .wp-block-pullquote {
+.entry-content figure + .wp-block-pullquote,
+.entry-content h2 + .wp-block-pullquote,
+.entry-content h3 + .wp-block-pullquote {
   padding-top: 1rem;
 }
 
