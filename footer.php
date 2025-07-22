@@ -57,6 +57,11 @@
 		highButton.addEventListener('click', () => {
 			cabin?.event('GAW user select - High')
 		})
+
+		const defaultButton = shadowRoot.querySelector('#gaw-manual-default')
+		defaultButton.addEventListener('click', () => {
+			cabin?.event('GAW user select - Default')
+		})
 	}
 </script>
 
