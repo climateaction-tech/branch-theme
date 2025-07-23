@@ -19,6 +19,7 @@
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
+	margin-top: 1rem;
 }
 
 .logo, .site-branding, .site-credit {
@@ -26,12 +27,8 @@
 }
 
 .logo {
-	display: none;
-
-	@include respond-to('xs') {
-		display: flex;
-		padding-right: 0.5rem;
-	}
+	display: flex;
+	padding-right: 0.5rem;
 
 	img {
 		min-width: 40px;
@@ -114,7 +111,7 @@
 	li {
 		position: relative;
 		text-transform: uppercase;
-		padding: 0.5rem 1rem;
+		padding: 1.5rem 1rem;
 
 		&:first-of-type {
 			padding-left: 0;

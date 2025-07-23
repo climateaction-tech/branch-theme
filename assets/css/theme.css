@@ -568,6 +568,16 @@ textarea {
   border: 1px solid var(--wp--preset--color--text-colour);
 }
 
+.wp-block-columns {
+  margin-top: 1rem;
+  margin-top: clamp(0.5rem, 5vw, 3rem);
+  margin-bottom: 0;
+}
+.wp-block-columns .wp-block-column {
+  margin-bottom: 1rem;
+  margin-bottom: clamp(0.5rem, 5vw, 3rem);
+}
+
 /* Layout. 
     Styling for the header.
 --------------------------------------------- */
@@ -586,6 +596,7 @@ textarea {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 1rem;
 }
 
 .logo, .site-branding, .site-credit {
@@ -593,13 +604,8 @@ textarea {
 }
 
 .logo {
-  display: none;
-}
-@media (min-width: 400px) {
-  .logo {
-    display: flex;
-    padding-right: 0.5rem;
-  }
+  display: flex;
+  padding-right: 0.5rem;
 }
 .logo img {
   min-width: 40px;
@@ -683,7 +689,7 @@ textarea {
 .main-navigation li {
   position: relative;
   text-transform: uppercase;
-  padding: 0.5rem 1rem;
+  padding: 1.5rem 1rem;
 }
 .main-navigation li:first-of-type {
   padding-left: 0;
@@ -818,10 +824,6 @@ textarea {
 /* Home. 
     Customisations just for the site homepage.
 --------------------------------------------- */
-.home .entry-content > *:first-child {
-  margin-top: 1rem;
-  margin-top: clamp(0.5rem, 5vw, 3rem);
-}
 .home .entry-content .wp-block-columns {
   column-gap: 3rem;
 }
