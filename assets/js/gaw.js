@@ -7,6 +7,7 @@ const infoBarGridZone = shadowRoot.querySelector(".holder.location p");
 const infoBarGridStatus = shadowRoot.querySelector(
   ".holder.grid-status > .split-content p",
 );
+const svgCircle = shadowRoot.querySelector(".holder.grid-status svg circle");
 
 const getCookies = () => {
   const cookies = document.cookie.split(";").reduce((acc, cookie) => {
@@ -21,10 +22,13 @@ const getCookies = () => {
 const applyHtmlChanges = (view) => {
   if (view === "low") {
     lowView();
+    svgCircle.setAttribute("fill", "#86CA7A");
   } else if (view === "moderate") {
     moderateView();
+    svgCircle.setAttribute("fill", "ECA75D");
   } else if (view === "high") {
     highView();
+    svgCircle.setAttribute("fill", "#E4A08A");
   } else {
     defaultView();
   }
