@@ -30,7 +30,10 @@
 
 	<header id="masthead" class="site-header">
 
-		<div class="grid-aware-components" id="gaw-data-bar"></div>
+		<div class="grid-aware-components" id="gaw-data-bar">
+		<gaw-info-bar data-views="Default, Low, Moderate, High" data-default-view="Default" data-learn-more-link="https://branch.climateaction.tech/issues/issue-9/designing-a-grid-aware-branch/"> </gaw-info-bar>
+		</div>
+		<script type="module" src="https://esm.sh/@greenweb/gaw-info-bar"></script>
 
 		<div class="branch-branding">
 			<div class="logo">

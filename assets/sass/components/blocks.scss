@@ -62,3 +62,14 @@
 		border: 1px solid var(--wp--preset--color--text-colour);
 	}
 }
+
+.wp-block-columns {
+	margin-top: $safe-spacing; // fallback.
+	margin-top: $clamp-spacing;
+	margin-bottom: 0;
+
+	.wp-block-column {
+		margin-bottom: $safe-spacing; // fallback.
+		margin-bottom: $clamp-spacing;
+	}
+}
