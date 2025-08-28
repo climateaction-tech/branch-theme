@@ -25,7 +25,7 @@ const applyHtmlChanges = (view) => {
     svgCircle.setAttribute("fill", "#86CA7A");
   } else if (view === "moderate") {
     moderateView();
-    svgCircle.setAttribute("fill", "ECA75D");
+    svgCircle.setAttribute("fill", "#ECA75D");
   } else if (view === "high") {
     highView();
     svgCircle.setAttribute("fill", "#E4A08A");

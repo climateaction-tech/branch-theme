@@ -58,5 +58,11 @@ function branch_scripts()
         filemtime(get_template_directory() . "/assets/js/gaw.js"),
         true,
     );
+    wp_enqueue_script_module(
+        "gaw-web-component",
+        "https://esm.sh/@greenweb/gaw-info-bar@latest",
+        [],
+        true,
+    );
 }
 add_action("wp_enqueue_scripts", "branch_scripts");
