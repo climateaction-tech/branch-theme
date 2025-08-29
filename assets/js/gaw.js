@@ -103,7 +103,8 @@ const runGaw = async () => {
 
       const gridIntensity = await getEMapsData.json();
 
-      infoBarGridZone.innerHTML = "United Kingdom";
+      infoBar.setAttribute("data-gaw-location", gridIntensity.data.zone);
+      infoBar.setAttribute("data-gaw-level", gridIntensity.data.data[0].level);
       // console.log(gridIntensity);
 
       if (gridIntensity.data.data[0].level === "low") {
@@ -122,6 +123,10 @@ const runGaw = async () => {
           gridIntensity.data.data[0],
         );
       }
+
+      const updatedInfoBar = infoBar.cloneNode(true);
+      infoBar.after(updatedInfoBar);
+      infoBar.remove();
     }
   }
 };
